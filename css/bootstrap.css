@@ -198,14 +198,6 @@ th {
     -webkit-box-shadow: none !important;
             box-shadow: none !important;
   }
-  .prin{
-    width: 970px;
-    height: 400px;
-    padding-right: 15px;
-     padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
   a,
   a:visited {
     text-decoration: underline;
@@ -4079,7 +4071,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-right: 0;
   border-radius: 4px;
 }
-
 .nav-tabs.nav-justified > .active > a,
 .nav-tabs.nav-justified > .active > a:hover,
 .nav-tabs.nav-justified > .active > a:focus {
@@ -4203,7 +4194,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-collapse.in {
   overflow-y: auto;
 }
-@media (min-width: 968px) {
+@media (min-width: 768px) {
   .navbar-collapse {
     width: auto;
     border-top: 0;

@@ -23,10 +23,10 @@ CREATE TABLE IF NOT EXISTS `tienda`.`producto` (
   `idproducto` INT NOT NULL AUTO_INCREMENT,
   `categoria_idcategoria` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
-  `precio` DECIMAL(3,2) NULL,
-  `descuento` DECIMAL(3,2) NULL,
+  `precio` NUMERIC(3,2) NULL,
+  `descuento` NUMERIC(3,2) NULL,
   `imagen` VARCHAR(150) NULL,
-  `iva` DECIMAL(3,2) NULL,
+  `iva` NUMERIC(3,2) NULL,
   `descripcion` TEXT NULL,
   `anuncio` TEXT NULL,
   `seleccion` CHAR(1) NULL,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `tienda`.`usuario` (
   `nombre` VARCHAR(45) NULL,
   `apellidos` VARCHAR(60) NULL,
   `direccion` VARCHAR(150) NULL,
-  `cp` DECIMAL(5) NULL,
+  `cp` NUMERIC(5) NULL,
   `estado` CHAR(1) NULL,
   PRIMARY KEY (`idusuario`),
   INDEX `fk_usuario_provincia1_idx` (`provincia_idprovincia` ASC),
@@ -78,11 +78,11 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `tienda`.`pedido` (
   `idpedido` INT NOT NULL AUTO_INCREMENT,
   `usuario_idusuario` INT NOT NULL,
-  `importe` DECIMAL(10,2) NULL,
+  `importe` NUMERIC(10,2) NULL,
   `estado` CHAR(1) NULL,
   `fecha` DATE NULL,
   `direccion` VARCHAR(150) NULL,
-  `cp` DECIMAL(5) NULL,
+  `cp` NUMERIC(5) NULL,
   `cod_provincia` INT NULL,
   `nombre_persona` VARCHAR(150) NULL,
   `apellidos_persona` VARCHAR(150) NULL,
@@ -102,8 +102,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `tienda`.`linea` (
   `idlinea` INT NOT NULL AUTO_INCREMENT,
   `pedido_idpedido` INT NOT NULL,
-  `iva` DECIMAL(3,2) NULL,
-  `precio` DECIMAL(3,2) NULL,
+  `iva` NUMERIC(3,2) NULL,
+  `precio` NUMERIC(3,2) NULL,
   `cantidad` INT NULL,
   `producto_idproducto` INT NOT NULL,
   PRIMARY KEY (`idlinea`),
@@ -125,3 +125,68 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO `categoria`(`idcategoria`, `cod_categoria`, `nombre`, `descripcion`, `anuncio`) VALUES (
+  NULL,'1','Filosofia','Biografias de los grandes pensadores de la historia','Descubre el mundo de la filosofia a través de su historia')
+
+INSERT INTO `categoria`(`idcategoria`, `cod_categoria`, `nombre`, `descripcion`, `anuncio`) VALUES (
+  NULL,'2','Economia','La historia de la economia por los mejores autores','Lográ entender el pasado presente y futuro de la economia mundial a traves de estos grandes bests sellers')
+
+
+INSERT INTO `provincia` VALUES ('01', 'Alava'),
+('02', 'Albacete'),
+('03', 'Alicante'),
+('04', 'Almera'),
+('05', 'Avila'),
+('06', 'Badajoz'),
+('07', 'Balears (Illes)'),
+('08', 'Barcelona'),
+('09', 'Burgos'),
+('10', 'Cáceres'),
+('11', 'Cádiz'),
+('12', 'Castellón'),
+('13', 'Ciudad Real'),
+('14', 'Córdoba'),
+('15', 'Coruña (A)'),
+('16', 'Cuenca'),
+('17', 'Girona'),
+('18', 'Granada'),
+('19', 'Guadalajara'),
+('20', 'Guipzcoa'),
+('21', 'Huelva'),
+('22', 'Huesca'),
+('23', 'Jaén'),
+('24', 'León'),
+('25', 'Lleida'),
+('26', 'Rioja (La)'),
+('27', 'Lugo'),
+('28', 'Madrid'),
+('29', 'Málaga'),
+('30', 'Murcia'),
+('31', 'Navarra'),
+('32', 'Ourense'),
+('33', 'Asturias'),
+('34', 'Palencia'),
+('35', 'Palmas (Las)'),
+('36', 'Pontevedra'),
+('37', 'Salamanca'),
+('38', 'Santa Cruz de Tenerife'),
+('39', 'Cantabria'),
+('40', 'Segovia'),
+('41', 'Sevilla'),
+('42', 'Soria'),
+('43', 'Tarragona'),
+('44', 'Teruel'),
+('45', 'Toledo'),
+('46', 'Valencia'),
+('47', 'Valladolid'),
+('48', 'Vizcaya'),
+('49', 'Zamora'),
+('50', 'Zaragoza'),
+('51', 'Ceuta'),
+('52', 'Melilla');
+
+
+INSERT INTO `usuario`(`idusuario`, `provincia_idprovincia`, `username`, `password`, `dni`, `email`, `nombre`, 
+  `apellidos`, `direccion`, `cp`, `estado`)
+ VALUES (NULL,'1','domi','1234','48930964m','domi1213@hotmail.com','domingo','carrasco','coquina','21100','1')

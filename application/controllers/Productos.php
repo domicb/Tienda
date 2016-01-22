@@ -10,9 +10,10 @@ class Productos extends CI_Controller {
             //pido los ultimos artículos al modelo
         $libros = $this->Tienda_model->dame_libros();
             //creo el array con datos de configuración para la vista
-        $cuerpo = array('rs_articulos' => $libros);
+        
+        $cuerpo = $this->load->view('Destacados', Array('libros' => $libros), true);
             //cargo la vista pasando los datos de configuacion
-        $this->load->view('Plantilla', $cuerpo);
+        $this->load->view('Plantilla', Array('cuerpo' => $cuerpo));
     }
 
 

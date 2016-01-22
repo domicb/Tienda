@@ -1,5 +1,4 @@
 
-
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -23,10 +22,10 @@ CREATE TABLE IF NOT EXISTS `tienda`.`producto` (
   `idproducto` INT NOT NULL AUTO_INCREMENT,
   `categoria_idcategoria` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
-  `precio` NUMERIC(3,2) NULL,
-  `descuento` NUMERIC(3,2) NULL,
+  `precio` NUMERIC(7,2) NULL,
+  `descuento` NUMERIC(7,2) NULL,
   `imagen` VARCHAR(150) NULL,
-  `iva` NUMERIC(3,2) NULL,
+  `iva` NUMERIC(7,2) NULL,
   `descripcion` TEXT NULL,
   `anuncio` TEXT NULL,
   `seleccion` CHAR(1) NULL,
@@ -82,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `tienda`.`pedido` (
   `estado` CHAR(1) NULL,
   `fecha` DATE NULL,
   `direccion` VARCHAR(150) NULL,
-  `cp` NUMERIC(5) NULL,
+  `cp` NUMERIC(7) NULL,
   `cod_provincia` INT NULL,
   `nombre_persona` VARCHAR(150) NULL,
   `apellidos_persona` VARCHAR(150) NULL,
@@ -102,8 +101,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `tienda`.`linea` (
   `idlinea` INT NOT NULL AUTO_INCREMENT,
   `pedido_idpedido` INT NOT NULL,
-  `iva` NUMERIC(3,2) NULL,
-  `precio` NUMERIC(3,2) NULL,
+  `iva` NUMERIC(7,2) NULL,
+  `precio` NUMERIC(7,2) NULL,
   `cantidad` INT NULL,
   `producto_idproducto` INT NOT NULL,
   PRIMARY KEY (`idlinea`),
@@ -127,11 +126,45 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO `categoria`(`idcategoria`, `cod_categoria`, `nombre`, `descripcion`, `anuncio`) VALUES (
-  NULL,'1','Filosofia','Biografias de los grandes pensadores de la historia','Descubre el mundo de la filosofia a través de su historia')
+  NULL,'1','Filosofia','Biografias de los grandes pensadores de la historia','Descubre el mundo de la filosofia a través de su historia');
 
 INSERT INTO `categoria`(`idcategoria`, `cod_categoria`, `nombre`, `descripcion`, `anuncio`) VALUES (
-  NULL,'2','Economia','La historia de la economia por los mejores autores','Lográ entender el pasado presente y futuro de la economia mundial a traves de estos grandes bests sellers')
+  NULL,'2','Economia','La historia de la economia por los mejores autores','Lográ entender el pasado presente y futuro de la economia mundial a traves de estos grandes bests sellers');
 
+
+INSERT INTO `tienda`.`producto`
+(`idproducto`,
+`categoria_idcategoria`,
+`nombre`,
+`precio`,
+`descuento`,
+`imagen`,
+`iva`,
+`descripcion`,
+`anuncio`,
+`seleccion`,
+`mostrar`,
+`inicio`,
+`fin`)
+VALUES
+(NULL,
+'1',
+'Contra la Ceguera',
+'14',
+'10',
+'c1/contra_la_ceguera.jpg',
+'21',
+'Contra la ceguera: Cuarenta años luchando por la utopía (Biografías y Memorias) Tapa blanda – 1 oct 2013
+de Julio Anguita González (Autor), Julio Flor Gamo (Autor)',
+'No puede negarse a Julio Anguita una importante dimensión social y 
+política después de haber caminado durante décadas en nombre de unos principios, 
+diciendo las cosas claras, enfrentándose al obispo de Córdoba, al gobernador militar 
+en plaza, a Felipe González y a José María Aznar, al rey Juan Carlos de Borbón, a los 
+sindicatos mayoritarios e, incluso, a sus compañeros y compañeras de partido o coalición.',
+'1',
+'1',
+'2016/4/12',
+'2016/12/12');
 
 INSERT INTO `provincia` VALUES ('01', 'Alava'),
 ('02', 'Albacete'),
@@ -189,4 +222,4 @@ INSERT INTO `provincia` VALUES ('01', 'Alava'),
 
 INSERT INTO `usuario`(`idusuario`, `provincia_idprovincia`, `username`, `password`, `dni`, `email`, `nombre`, 
   `apellidos`, `direccion`, `cp`, `estado`)
- VALUES (NULL,'1','domi','1234','48930964m','domi1213@hotmail.com','domingo','carrasco','coquina','21100','1')
+ VALUES (NULL,'1','domi','1234','48930964m','domi1213@hotmail.com','domingo','carrasco','coquina','21100','1');

@@ -20,8 +20,8 @@ class Inicio extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('Cabecera.php');
+		/*$this->load->view('Cabecera.php');
                 $this->load->view('Cuerpo.php');
-                $this->load->view('Pie.php');
+                $this->load->view('Pie.php');*/
 	}
 }

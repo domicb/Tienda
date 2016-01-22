@@ -1,4 +1,5 @@
-precioINSERT INTO `tienda`.`producto`
+
+INSERT INTO `tienda`.`producto`
 (`idproducto`,
 `categoria_idcategoria`,
 `nombre`,
@@ -9,7 +10,7 @@ precioINSERT INTO `tienda`.`producto`
 `descripcion`,
 `anuncio`,
 `seleccion`,
-`mostrar`,productoproductocategoria
+`mostrar`,
 `inicio`,
 `fin`)
 VALUES
@@ -29,5 +30,6 @@ en plaza, a Felipe González y a José María Aznar, al rey Juan Carlos de Borb�
 sindicatos mayoritarios e, incluso, a sus compañeros y compañeras de partido o coalición.',
 '1',
 '1',
-'24/12/2013',
-'12/12/2016');
+'2016/4/24',
+'2016/12/12');
+

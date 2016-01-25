@@ -163,8 +163,28 @@ en plaza, a Felipe González y a José María Aznar, al rey Juan Carlos de Borb�
 sindicatos mayoritarios e, incluso, a sus compañeros y compañeras de partido o coalición.',
 '1',
 '1',
-'2016/4/12',
-'2016/12/12');
+'2016/04/12',
+'2016/12/12'),
+(NULL,
+'1',
+'Los amos del mudno',
+'18',
+'15',
+'c1/amos_del_mundo.jpg',
+'21',
+'Los amos del mundo. Las armas del terrorismo financiero
+Vicenç Navarro y Juan Torres López. Espasa Libros. Barcelona 2012
+el libro se podría introducir con una simple pregunta, ¿Quien manda realmente?',
+'El desmantelamiento de las democracias. Los conglomerados empresariales Concentración de capital y 
+poder de mercado. El chantaje de la deslocalización. La fabricación del consenso. Los grandes grupos
+financieros: el poder sobre el poder. La percepción del poder. Lo que la gente intuye,
+ con razón, sobre el poder. La percepción del poder. Descubrir el verdadero rostro de los poderosos.
+  La ignorancia cultivada sobre la banca. Abrir los ojos',
+'1',
+'1',
+'2016/02/11',
+'2016/06/04',  
+);
 
 INSERT INTO `provincia` VALUES ('01', 'Alava'),
 ('02', 'Albacete'),

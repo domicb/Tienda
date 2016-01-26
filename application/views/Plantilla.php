@@ -134,7 +134,7 @@
             <footer>
                 <div class="row">
                     <div class="col-lg-12">
-                        <p>Copyright &copy; Your Website 2014</p>
+                        <center><p>Copyright &copy; Carrasco Domingo 2016</p></center>
                     </div>
                 </div>
             </footer>

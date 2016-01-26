@@ -10,14 +10,13 @@
         <!-- Page Features -->
         <div class="row text-center">
            
-                    
-           
+                              
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
                     <img src="http://placehold.it/800x500" alt="">
                     <div class="caption">
-                        <h3>Tituto</h3>
-                        <p>Anuncio.</p>
+                        <h3>Aqui va el Tituto</h3>
+                        <p>Aqui va el Anuncio.</p>
                         <p>
                             <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
                         </p>
@@ -27,12 +26,12 @@
              <?php foreach ($libros as $key => $libro) {
            echo '<div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src=Assets/img/'.$libro['imagen'].' alt="">
+                    <img width="150" height="100" src=Assets/img/'.$libro['imagen'].' alt="">
                     <div class="caption">';
                     echo ' <h3>'.$libro['nombre'].'</h3>';
                     echo ' <p>'.$libro['anuncio'].'</p>';
                       echo'  <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                            <a href="#" class="btn btn-primary">Comprar!</a> <a href="#" class="btn btn-default">Más Información</a>
                         </p>
                     </div>
                 </div>

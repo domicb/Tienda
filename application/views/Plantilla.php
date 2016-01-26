@@ -60,13 +60,20 @@
         </nav>
         <!-- Page Content -->
         <div class="container">
-
+            
             <!-- Jumbotron Header -->
             <header class="jumbotron hero-spacer">
                 <h1>A Warm Welcome!</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-                <p><a class="btn btn-primary btn-large">Call to action!</a>
+                <p><a class="btn btn-primary btn-large" id="des">Ver destacados!</a>
                 </p>
+             <script src="Assets/js/jquery2.min.js"></script>
+                <script type="text/javascript">
+                $("#des").click(function(){
+                    var posicion = $("#aqui").offset().top;            
+                        $("html, body").animate({scrollTop:posicion});
+                });
+            </script>
             </header>
 
             <hr>
@@ -81,16 +88,16 @@
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="Assets/img/c1/amos_del_mundo.jpg" alt="Chania">
+                    <div class="item active" align="center">
+                        <img width="250" height="150" src="Assets/img/c1/amos_del_mundo.jpg" alt="Chania">
                     </div>
 
-                    <div class="item">
-                        <img src="Assets/img/c1/contra_la_ceguera.jpg" alt="Chania">
+                    <div class="item" align="center">
+                        <img width="250" height="150" src="Assets/img/c1/contra_la_ceguera.jpg" alt="Chania">
                     </div>
 
-                    <div class="item">
-                        <img src="Assets/img/c1/hombres_buenos.jpg" alt="Flower">
+                    <div class="item" align="center">
+                        <img  width="250" height="150" src="Assets/img/c1/hombres_buenos.jpg" alt="Flower">
                     </div>
 
                 </div>
@@ -108,7 +115,7 @@
 
             <hr>
 
-
+            <span id="aqui"></span>
             <!-- AQUI VA EL CUERPO CON PHP -->
             <?php
             if (isset($cuerpo)) {

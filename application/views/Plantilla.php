@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Heroic Features - Start Bootstrap Template</title>
+        <title>Tienda</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="Assets/css/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Start Bootstrap</a>
+                    <a class="navbar-brand" href="#">Inicio</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -51,6 +51,22 @@
                         </li>
                         <li>
                             <a href="#">Contact</a>
+                        </li>                       
+                        <li>
+                            <a href="#">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        </li>
+                         <li>
+                             <a href="#">Identificate</a>
+                        </li>
+                        <li>
+                            <a href="#">Ver carrito!</a>
+                        </li>
+                        <li>
+                            <a align="rigth"><img src="Assets/img/carrito.png"></a>
                         </li>
                     </ul>
                 </div>

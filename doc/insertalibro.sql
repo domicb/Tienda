@@ -2,6 +2,7 @@ INSERT INTO `tienda`.`producto`
 (`idproducto`,
 `categoria_idcategoria`,
 `nombre`,
+`cantidad`,
 `precio`,
 `descuento`,
 `imagen`,
@@ -16,12 +17,13 @@ VALUES
 (NULL,
 '1',
 'Contra la Ceguera',
+'5',
 '14',
 '10',
 'c1/contra_la_ceguera.jpg',
 '21',
 'Contra la ceguera: Cuarenta años luchando por la utopía (Biografías y Memorias) Tapa blanda – 1 oct 2013
-de Julio Anguita González (Autor), Julio Flor Gamo (Autor)',
+de Julio Anguita González Historiador y (Autor), Julio Flor Gamo (Autor)',
 'No puede negarse a Julio Anguita una importante dimensión social y 
 política después de haber caminado durante décadas en nombre de unos principios, 
 diciendo las cosas claras, enfrentándose al obispo de Córdoba, al gobernador militar 
@@ -34,6 +36,7 @@ sindicatos mayoritarios e, incluso, a sus compañeros y compañeras de partido o
 (NULL,
 '1',
 'Los amos del mudno',
+'3',
 '18',
 '15',
 'c1/amos_del_mundo.jpg',
@@ -50,7 +53,45 @@ financieros: el poder sobre el poder. El poder financiero. La percepción del po
 '1',
 '1',
 '2016/02/11',
-'2016/06/04'  
-);
+'2016/06/04'),
+(NULL,
+'1',
+'Hombres Buenos',
+'2',
+'18.90',
+'9',
+'c1/hombres_buenos.jpg',
+'21',
+'Novela del escritor español Arturo Pérez-Reverte publicada en el año 2015 por editorial Alfaguara. 
+Narra las peripecias de dos españoles enviados a Francia por la Real Academia Española de la Lengua a finales del siglo XVIII.',
+'Durante el viaje a París para conseguir L''Encyclopédie, los 2 protagonistas principales, el bibliotecario
+ Hermógenes Molina y el almirante don Pedro Zárate, han de enfrentarse a diferentes problemas, sufren el 
+ asalto de bandidos y deben visitar oscuras librerías donde se venden todo tipo de libros prohibidos, desde 
+ las obras de Voltaire y Rousseau, hasta publicaciones pornográficas.',
+ '1',
+ '1',
+ '2016/01/27',
+ '2016/05/07'),
+ (NULL,
+ '1',
+ 'Momentos España',
+ '7',
+ '23.20',
+ '12',
+ 'c1/espana.jpg',
+ '21',
+ '¿Y si leyéndolo descubres que existe un pasadizo secreto que te permite viajar en el tiempo?
+  ¿Acaso no sabías que la Historia es el mejor libro de aventuras? Viaja en el tiempo',
+  'Viajarás en una galera romana. A lomos de un corcel árabe visitarás la fabulosa Córdoba de los emires y 
+  califas. Derribarás murallas, defenderás castillos, levantarás catedrales. Partirás al Nuevo Mundo junto 
+  a Colón y entrarás en Tenochtitlán al lado de Cortés. Lucharás en Lepanto, Trafalgar y Bailén. Verás 
+  trabajar a Goya en su estudio y a los sabios del 98 discutir en los cafés. Oirás al pueblo gritar «¡Viva 
+  la República!»',
+  '1',
+  '1',
+  '2016/01/02',
+  '2016/08/10'
+ )
+;
 
 

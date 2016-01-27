@@ -4,41 +4,27 @@
                 <h3>Destacados</h3>
             </div>
         </div>
+        <hr>
         <!-- /.row -->
-<!-- AQUI VA EL CUERPO CON PHP -->
    
         <!-- Page Features -->
         <div class="row text-center">
-           
-                              
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
-                    <div class="caption">
-                        <h3>Aqui va el Tituto</h3>
-                        <p>Aqui va el Anuncio.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+
              <?php foreach ($libros as $key => $libro) {
            echo '<div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
+                <span class="help-block">Quedan '.$libro['cantidad'].' libros</span>
                     <img width="150" height="100" src=Assets/img/'.$libro['imagen'].' alt="">
                     <div class="caption">';
                     echo ' <h3>'.$libro['nombre'].'</h3>';
-                    echo ' <p>'.$libro['anuncio'].'</p>';
+                    echo ' <p>'.substr($libro['descripcion'], 0, 205).'</p>';
                       echo'  <p>
-                            <a href="#" class="btn btn-primary">Comprar!</a> <a href="#" class="btn btn-default">Más Información</a>
+                            <a href="#" class="btn btn-primary">Comprar</a> <a href="#" class="btn btn-default">Más Información</a>
                         </p>
                     </div>
                 </div>
             </div>';
-               }   ?>      
-        
-
+               }   ?>      <!-- FIN FOREACH -->   
             
 
         </div>

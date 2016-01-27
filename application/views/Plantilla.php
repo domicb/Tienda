@@ -13,7 +13,7 @@
 
         <!-- Bootstrap Core CSS -->
         <link href="Assets/css/bootstrap.min.css" rel="stylesheet">
-
+         <script src="Assets/js/jquery2.min.js"></script>
         <!-- Custom CSS -->
         <link href="Assets/css/heroic-features.css" rel="stylesheet">
 
@@ -63,11 +63,10 @@
             
             <!-- Jumbotron Header -->
             <header class="jumbotron hero-spacer">
-                <h1>A Warm Welcome!</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-                <p><a class="btn btn-primary btn-large" id="des">Ver destacados!</a>
-                </p>
-             <script src="Assets/js/jquery2.min.js"></script>
+                <h1>Bienvenido!</h1>
+                <p>Tan solo por la educación puede el hombre llegar a ser hombre. El hombre no es más que lo que la educación hace de él.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Immanuel Kant.</p>
+                <p><a class="btn btn-primary btn-large" id="des">Ver catálogo!</a>
+                </p>           
                 <script type="text/javascript">
                 $("#des").click(function(){
                     var posicion = $("#aqui").offset().top;            
@@ -84,6 +83,7 @@
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                     <li data-target="#myCarousel" data-slide-to="1"></li>
                     <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
                 </ol>
 
                 <!-- Wrapper for slides -->
@@ -98,6 +98,10 @@
 
                     <div class="item" align="center">
                         <img  width="250" height="150" src="Assets/img/c1/hombres_buenos.jpg" alt="Flower">
+                    </div>
+                    
+                    <div class="item" align="center">
+                        <img  width="250" height="150" src="Assets/img/c1/espana.jpg" alt="Flower">
                     </div>
 
                 </div>
@@ -124,12 +128,18 @@
                 echo 'array vacio';
             }
             ?>
-
-
-
-
+            
+            
             <hr>
-
+            
+            <center><a class="btn btn-primary btn-large" id="arri">Volver arriva!</a></center>
+            <script type="text/javascript">
+                $("#arri").click(function(){
+                   $('body,html').animate({scrollTop : 0}, 500);
+                });
+            </script>
+            <hr>
+            
             <!-- Footer -->
             <footer>
                 <div class="row">

@@ -11,15 +11,7 @@ class Tienda_model extends CI_Model {
     }
 
     public function dame_libros() {
-        $query = $this->db->get('producto',10);
-       /* if($query != '')
-        {
-            $cuerpo = $query;
-        }
-        else
-        {
-            $cuerpo = 'vacio';
-        }*/
+        $query = $this->db->get('producto');
         return $query->result_array();
     }
 

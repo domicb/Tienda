@@ -1,7 +1,7 @@
         <!-- Title -->
         <div class="row">
             <div class="col-lg-12">
-                <h3>Destacados</h3>
+                <h3>Destacados</h3> <div class="btn-group btn-group-lg"></div>
             </div>
         </div>
         <hr>

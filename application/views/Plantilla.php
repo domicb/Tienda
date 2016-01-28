@@ -63,10 +63,10 @@
                              <a href="#">Identificate</a>
                         </li>
                         <li>
-                            <a href="#">Ver carrito!</a>
+                            <a href="http://www.pccomponentes.es">Ver carrito!
                         </li>
                         <li>
-                            <a align="rigth"><img src="Assets/img/carrito.png"></a>
+                            <img src="Assets/img/carrito.png"></a>
                         </li>
                     </ul>
                 </div>

@@ -110,7 +110,47 @@ Narra las peripecias de dos españoles enviados a Francia por la Real Academia E
   '1',
   '1',
   '2016/01/03',
-  '2016/09/03')
-;
+  '2016/09/03'),
+ (NULL,
+  '2',
+  'Ser y Tiempo',
+  '8',
+  '11.40',
+  '12',
+  'c2/heidegger.jpg',
+  '21',
+  'Es considerado una de las obras más importantes dentro de la filosofía continental.
+  Permanece como una de las obras sobre las que más se ha discutido en la filosofía del siglo XX.',
+  'En esta obra, Heidegger aborda la cuestión del ser: ¿qué significa que una entidad sea? o ¿cuál es la razón por la que hay algo
+  en lugar de nada? Estas cuestiones fundamentales de la ontología, definidas por Aristóteles, fueron el estudio del qua (latín, 
+  tr. literalmente como, o en la capacidad de). En esta aproximación a la cuestión, Heidegger se coloca entre la tradición de
+  Aristóteles y de Kant, autores que difieren ampliamente en sus posiciones filosóficas respectivas; no aborda la cuestión del 
+  sentido del ser desde la perspectiva de la lógica de las proposiciones.',
+  '1',
+  '1',
+  '2016/01/15',
+  '2016/12/03'),
+  (NULL,
+  '2',
+  'Critica de la Razón',
+  '2',
+  '13.20',
+  '17',
+  'c2/kant.jpg',
+  '21',
+  'Se trata de una indagación trascendental acerca de las condiciones epistémicas del conocer humano
+  cuyo objetivo central es lograr una respuesta definitiva sobre si la metafísica puede ser considerada
+  una ciencia',
+  'En esta obra, Kant intenta la conjunción de racionalismo y empirismo, haciendo una crítica de las 
+  dos corrientes filosóficas que se centraban en el objeto como fuente de conocimiento, y así, dando un
+  «giro copernicano» al modo de concebir la filosofía, estudiando el sujeto como la fuente que construye
+  el conocimiento del objeto, a través de la representación que el sujeto, mediante la sensibilidad 
+  inherente a su naturaleza toma del objeto.',
+  '1',
+  '1',
+  '2016/02/13',
+  '2016/11/13'
+  )  ;
+
 
 

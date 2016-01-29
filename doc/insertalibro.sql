@@ -90,8 +90,27 @@ Narra las peripecias de dos españoles enviados a Francia por la Real Academia E
   '1',
   '1',
   '2016/01/02',
-  '2016/08/10'
- )
+  '2016/08/10'),
+ (NULL,
+  '2',
+  'Discurso del método',
+  '4',
+  '9.99',
+  '12',
+  'c2/descartes.jpg',
+  '21',
+  'Discurso del método para conducir bien la propia razón y buscar la verdad en las ciencias, 
+  principal obra escrita por René Descartes y una obra fundamental de la filosofía occidental con implicaciones para el 
+  desarrollo de la filosofía y de la ciencia.',
+  'Descartes tituló esta obra Discurso del método con una finalidad precisa. En una carta que dirige a Marin Mersenne le 
+  explica que la ha titulado Discurso y no Tratado para poner de manifiesto que no tenía intención de enseñar, sino sólo de 
+  hablar. Con esto Descartes trata de alejarse de cualquier problema que pudiese surgir con sus contemporáneos por las ideas 
+  vertidas en esta obra y además escapa así de una posible condena eclesiástica como había ocurrido poco tiempo antes con 
+  Galileo y cuyas ideas Descartes no consideraba desacertadas.',
+  '1',
+  '1',
+  '2016/01/03',
+  '2016/09/03')
 ;
 
 

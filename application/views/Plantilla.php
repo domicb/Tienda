@@ -38,7 +38,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Inicio</a>
+                    <a class="navbar-brand" href="<?=site_url()?>">Inicio</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -60,7 +60,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </li>
                          <li>
-                             <a href="#">Identificate</a>
+                             <a href="<?=site_url('Login_c/login')?>">Identificate</a>
                         </li>
                         <li>
                             <a href="http://www.pccomponentes.es">Ver carrito!
@@ -134,8 +134,7 @@
             </div>
 
             <hr>
-
-            <span id="aqui"></span>
+            <span id="aqui">
             <!-- AQUI VA EL CUERPO CON PHP -->
             <?php
             if (isset($cuerpo)) {
@@ -144,7 +143,7 @@
                 echo 'array vacio';
             }
             ?>
-            
+            </span>
             
             <hr>
             

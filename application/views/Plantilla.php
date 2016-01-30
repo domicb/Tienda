@@ -12,10 +12,10 @@
         <title>Tienda</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="Assets/css/bootstrap.min.css" rel="stylesheet">
-         <script src="Assets/js/jquery2.min.js"></script>
+        <link href="<?=base_url()?>Assets/css/bootstrap.min.css" rel="stylesheet">
+         <script src="<?=base_url()?>Assets/js/jquery2.min.js"></script>
         <!-- Custom CSS -->
-        <link href="Assets/css/heroic-features.css" rel="stylesheet">
+        <link href="<?=base_url()?>Assets/css/heroic-features.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,13 +60,13 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </li>
                          <li>
-                             <a href="<?=site_url('Login_c/login')?>">Identificate</a>
+                             <a href="<?=base_url().'index.php/Login_c/login'?>">Identificate</a>
                         </li>
                         <li>
                             <a href="http://www.pccomponentes.es">Ver carrito!
                         </li>
                         <li>
-                            <img src="Assets/img/carrito.png"></a>
+                            <img src="<?=base_url()?>Assets/img/carrito.png"></a>
                         </li>
                     </ul>
                 </div>
@@ -105,19 +105,19 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active" align="center">
-                        <img width="250" height="150" src="Assets/img/c1/amos_del_mundo.jpg" alt="Chania">
+                        <img width="250" height="150" src="<?=base_url()?>Assets/img/c1/amos_del_mundo.jpg" alt="Chania">
                     </div>
 
                     <div class="item" align="center">
-                        <img width="250" height="150" src="Assets/img/c1/contra_la_ceguera.jpg" alt="Chania">
+                        <img width="250" height="150" src="<?=base_url()?>Assets/img/c1/contra_la_ceguera.jpg" alt="Chania">
                     </div>
 
                     <div class="item" align="center">
-                        <img  width="250" height="150" src="Assets/img/c1/hombres_buenos.jpg" alt="Flower">
+                        <img  width="250" height="150" src="<?=base_url()?>Assets/img/c1/hombres_buenos.jpg" alt="Flower">
                     </div>
                     
                     <div class="item" align="center">
-                        <img  width="250" height="150" src="Assets/img/c1/espana.jpg" alt="Flower">
+                        <img  width="250" height="150" src="<?=base_url()?>Assets/img/c1/espana.jpg" alt="Flower">
                     </div>
 
                 </div>
@@ -146,8 +146,8 @@
             </span>
             
             <hr>
-            
-            <center><a class="btn btn-primary btn-large" id="arri">Volver arriva!</a></center>
+            <!-- PAGINACION -->
+            <center><a class="btn btn-primary btn-large" id="arri">Volver Arriba!</a></center>
             <script type="text/javascript">
                 $("#arri").click(function(){
                    $('body,html').animate({scrollTop : 0}, 500);
@@ -168,10 +168,10 @@
         <!-- /.container -->
 
         <!-- jQuery -->
-        <script src="Assets/js/jquery.js"></script>
+        <script src="<?=base_url()?>Assets/js/jquery.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="Assets/js/bootstrap.min.js"></script>
+        <script src="<?=base_url()?>Assets/js/bootstrap.min.js"></script>
 
     </body>
 

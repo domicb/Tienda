@@ -149,8 +149,7 @@ Narra las peripecias de dos españoles enviados a Francia por la Real Academia E
   '1',
   '1',
   '2016/02/13',
-  '2016/11/13'
-  )  ;
+  '2016/11/13');
 
 
 

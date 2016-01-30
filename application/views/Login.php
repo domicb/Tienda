@@ -94,6 +94,6 @@ a2a_config.linkurl="http://blogdephp.com/php-login/";
 */</script><script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
  
 <div class="Info">
-   <p><a href="<?=site_url()?>">volver a página inicio</a></p>
+   <p><a href="<?=base_url()?>">volver a página inicio</a></p>
 </div>
 </body>

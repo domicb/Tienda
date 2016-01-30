@@ -23,3 +23,4 @@ $config['first_tag_open'] = '<li>';
 $config['first_tag_close'] = '</li>';
 $config['last_tag_open'] = '<li>';
 $config['last_tag_close'] = '</li>'; 
+$config["uri_segment"] = 3;

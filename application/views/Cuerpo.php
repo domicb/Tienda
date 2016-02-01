@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col-lg-12">
 
-        <button type="button" class="btn btn-default">Destacados</button>
-        <button type="button" class="btn btn-default">Filosofía</button>
+        <a href="<?=base_url()?>"><button type="button" class="btn btn-default">Destacados</button></a>
+        <a href="<?=base_url().'index.php/Filosofia'?>"><button type="button" class="btn btn-default">Filosofía</button></a>
         <button type="button" class="btn btn-default">Historia</button>
     </div>
 

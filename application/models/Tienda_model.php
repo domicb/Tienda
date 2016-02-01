@@ -15,6 +15,25 @@ class Tienda_model extends CI_Model {
         $query = $this->db->get('producto', $por_pagina,$segmento);
         return $query->result_array();
     }
+    
+    public function libros_filosofia($por_pagina,$segmento)
+    {
+        $this->db->select('*');
+        $this->db->from('producto');
+        $this->db->where('categoria_idcategoria',2);
+        $this->db->limit($por_pagina,$segmento);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    
+        function filas_filo()
+    {   
+            $this->db->select('*');
+            $this->db->from('producto');
+            $this->db->where('categoria_idcategoria',2);
+            $consulta = $this->db->get();
+            return  $consulta->num_rows() ;
+    } 
    
     //obtenemos el total de filas para hacer la paginación
     function filas()

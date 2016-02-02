@@ -11,6 +11,7 @@
 <hr>
 <!-- /.row -->
 <h3>Destacados</h3> 
+
 <!-- Page Features -->
 <div class="row text-center">
 
@@ -25,11 +26,27 @@
        <p>  <?=substr($libro['descripcion'], 0, 205)?> </p>
        <p>
                             <a href="#" class="btn btn-primary">Comprar <?=$libro['precio']?> &euro; </a></p><p> 
-                            <a href="#" class="btn btn-default">Más Información</a>
+                            <a href="#" class="btn btn-default" data-toggle="modal" data-target="#<?=$libro['idproducto']?>" id="<?=$libro['idproducto']?>">Más Información</a>
                         </p>
                     </div>
                 </div>
             </div>
+    <div class="modal fade" id="<?=$libro['idproducto']?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3>Información del libro</h3>
+                </div>
+                <div class="modal-body">
+                    <?=$libro['anuncio']?>                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
    <?php endforeach;?>
    
 </div>

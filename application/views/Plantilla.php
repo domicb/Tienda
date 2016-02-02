@@ -82,7 +82,8 @@
                 <h1>Bienvenido!</h1>
                 <p>Tan solo por la educación puede el hombre llegar a ser hombre. El hombre no es más que lo que la educación hace de él.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Immanuel Kant.</p>
                 <p><a class="btn btn-primary btn-large" id="des">Ver catálogo!</a>
-                </p>           
+                </p> 
+                
                 <script type="text/javascript">
                 $("#des").click(function(){
                     var posicion = $("#aqui").offset().top;            

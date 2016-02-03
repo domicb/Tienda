@@ -6,13 +6,15 @@ class Login_c extends CI_Controller {
    {
          
       //   $this->config->set_item('language', 'spanish');      //   Setear dinámicamente el idioma que deseamos que ejecute nuestra aplicación
-      if(!isset($_POST['maillogin'])){   //   Si no recibimos ningún valor proveniente del formulario, significa que el usuario recién ingresa.   
+      if(!isset($_POST['maillogin'])){
+          $this->load->view('Plantilla');//   Si no recibimos ningún valor proveniente del formulario, significa que el usuario recién ingresa.   
          $this->load->view('Login');      //   Por lo tanto le presentamos la pantalla del formulario de ingreso.
       }
       else{                        //   Si el usuario ya pasó por la pantalla inicial y presionó el botón "Ingresar"
          $this->form_validation->set_rules('maillogin','e-mail','required|valid_email');      //   Configuramos las validaciones ayudandonos con la librería form_validation del Framework Codeigniter
          $this->form_validation->set_rules('passwordlogin','password','required');
-         if(($this->form_validation->run()==FALSE)){            //   Verificamos si el usuario superó la validación
+         if(($this->form_validation->run()==FALSE)){ 
+             $this->load->view('Plantilla');//   Verificamos si el usuario superó la validación
             $this->load->view('Login');                     //   En caso que no, volvemos a presentar la pantalla de login
          }
          else{                                       //   Si ambos campos fueron correctamente rellanados por el usuario,
@@ -24,10 +26,11 @@ class Login_c extends CI_Controller {
             }
             else{   //   Si no logró validar
                $data['error']="E-mail o password incorrecta, por favor vuelva a intentar";
+               $this->load->view('Plantilla');
                $this->load->view('Login',$data);   //   Lo regresamos a la pantalla de login y pasamos como parámetro el mensaje de error a presentar en pantalla
             }
          }
       }
    }
 }
-?>
+

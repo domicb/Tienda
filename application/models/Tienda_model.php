@@ -9,6 +9,11 @@ class Tienda_model extends CI_Model {
         parent::__construct();
          $this->load->database();      
     }
+    public function get_categorias()
+    {
+        $query = $this->db->get('categoria');
+        return $query->result_array();
+    }
 
     public function dame_libros($por_pagina,$segmento) 
     {

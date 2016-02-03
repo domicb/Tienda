@@ -1,10 +1,15 @@
 <!-- Title -->
 <div class="row">
     <div class="col-lg-12">
+              <a href="<?=base_url()?>"><button type="button" class="btn btn-default"> <span class="glyphicon glyphicon-star">        
+                </span>Destacados</button> </a>
+                <!-- Si existen las categoria las mostramos sino tenemos que lanzar error-->
+        <?php if(isset($categorias)):
+    foreach ($categorias as $key => $categoria):?>
 
-        <a href="<?=base_url()?>"><button type="button" class="btn btn-default">Destacados</button></a>
-        <a href="<?=base_url().'index.php/Filosofia'?>"><button type="button" class="btn btn-default">Filosofía</button></a>
-        <button type="button" class="btn btn-default">Historia</button>
+        <a href="<?='index.php/'.$categoria['nombre']?>"><button type="button" class="btn btn-default"><?=$categoria['nombre']?></button></a>
+       <?php endforeach;?> 
+        <?php endif;?>
     </div>
 
 </div>
@@ -25,12 +30,13 @@
        <h3> <?= $libro['nombre']?></h3>
        <p>  <?=substr($libro['descripcion'], 0, 205)?> </p>
        <p>
-                            <a href="#" class="btn btn-primary">Comprar <?=$libro['precio']?> &euro; </a></p><p> 
+                            <a href="<?=base_url().'index.php/Compras/compra/'.$libro['idproducto']?>" class="btn btn-primary">Comprar <?=$libro['precio']?> &euro; </a></p><p> 
                             <a href="#" class="btn btn-default" data-toggle="modal" data-target="#<?=$libro['idproducto']?>" id="<?=$libro['idproducto']?>">Más Información</a>
                         </p>
                     </div>
                 </div>
             </div>
+    <!-- MODAL -->
     <div class="modal fade" id="<?=$libro['idproducto']?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

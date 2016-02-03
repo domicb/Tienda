@@ -27,14 +27,25 @@ class Productos extends CI_Controller {
         //cargo el helper de url, con funciones para trabajo con URL del sitio
         $this->load->helper('url');        
         //pido los ultimos artículos al modelo
-        $libros = $this->Tienda_model->dame_libros($config['per_page'], $desde);
+        $libros = $this->get_libros($config,$desde);       
+        $categorias = $this->dame_categorias();   
         
-               
         //creo el array con datos de configuración para la vista      
-        $cuerpo = $this->load->view('Cuerpo', Array('libros' => $libros), true);
+        $cuerpo = $this->load->view('Cuerpo', Array('libros' => $libros, 'categorias' => $categorias), true);
         //cargo la vista pasando los datos de configuacion
         $this->load->view('Plantilla', Array('cuerpo' => $cuerpo));  
         
+    }
+    
+    public function get_libros($config,$desde)
+    {
+        $libros = $this->Tienda_model->dame_libros($config['per_page'], $desde);
+        return $libros;
+    }
+    public function dame_categorias()
+    {
+        $categorias = $this->Tienda_model->get_categorias();
+        return $categorias;
     }
 
 

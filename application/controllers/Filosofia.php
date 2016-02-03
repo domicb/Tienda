@@ -29,11 +29,17 @@ class Filosofia extends CI_Controller {
         //pido los ultimos artículos al modelo
         $libros = $this->Tienda_model->libros_filosofia($config['per_page'], $desde);
         
-               
+        $categorias = $this->dame_categorias();       
         //creo el array con datos de configuración para la vista      
-        $cuerpo = $this->load->view('Cuerpo', Array('libros' => $libros), true);
+        $cuerpo = $this->load->view('Cuerpo', Array('libros' => $libros, 'categorias' => $categorias), true);
         //cargo la vista pasando los datos de configuacion
         $this->load->view('Plantilla', Array('cuerpo' => $cuerpo));  
+    }
+    
+    public function dame_categorias()
+    {
+        $categorias = $this->Tienda_model->get_categorias();
+        return $categorias;
     }
     
 }

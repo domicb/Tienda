@@ -62,5 +62,13 @@ class Tienda_model extends CI_Model {
             }
 	}
 	
-
+        public function datos_libro($id)
+        {
+            $this->db->select('*');
+            $this->db->from('producto');
+            $this->db->where('idproducto',$id);
+            
+            $query = $this->db->get();
+            return $query->result_array();
+        }
 }

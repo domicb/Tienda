@@ -17,17 +17,18 @@ class Compras extends CI_Controller {
     public function compra($id)
     {//tenemos que regular el paso de los parametros a la funion add del carrito y ver lo de la sesiones
         echo 'se ha comprado el producto con id '.$id;
-        $dato = $this->Tienda_model->datos_libro($id);
-        $datos['precio']=3;
-        $datos['cantidad']=1;
-        $datos['id']=$id;
-        $this->Carrito->add($datos);
-        $res = $this->Carrito->get_content();
+        $articulo = $this->Tienda_model->datos_libro($id);
+        echo "<pre>"; print_r($articulo); echo "</pre>";
+      //el problema lo tenemos que al incluir el articulo nos reconoce los datos
+                //creamos el carrito
+        $carrito = new Carrito();
+        $carrito->destroy();
+        $carrito->add($articulo);
+        $res = $carrito->get_content();
         
-        $carro = $this->load->view('Carro', Array('datos' => $dato,'resultado' =>$res),true);  
+        echo "<pre>"; print_r($res); echo "</pre>";
+        $carro = $this->load->view('Carro', Array('articulos' =>$res),true);  
         $this->load->view('Plantilla_carro',Array('carro' => $carro));
-
-
         
     }
     

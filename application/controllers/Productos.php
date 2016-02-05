@@ -9,7 +9,9 @@ class Productos extends CI_Controller {
     }
 
     function index($desde = 0) {
-               
+            //cache       
+         $this -> output->cache(10);
+        
         $pages=4; //Número de registros mostrados por páginas
 	$this->load->library('pagination'); //Cargamos la librería de paginación
         // parametro base de la aplicación, si tenemos un .htaccess nos evitamos el index.php

@@ -67,7 +67,6 @@ class Tienda_model extends CI_Model {
             $this->db->select('*');
             $this->db->from('producto');
             $this->db->where('idproducto',$id);
-            
             $query = $this->db->get();
             return $query->result_array();
         }

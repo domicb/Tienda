@@ -20,7 +20,7 @@
 
 <!-- Page Features -->
 <div class="row text-center">
-    <?php echo print_r($libros);?>
+    <?php// echo print_r($libros);?>
 
     <?php
     foreach ($libros as $key => $libro):?> 

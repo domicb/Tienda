@@ -30,7 +30,7 @@ class Productos extends CI_Controller {
         $this->load->helper('url');        
         //pido los ultimos artículos al modelo
         $libros = $this->get_libros($config,$desde);       
-        $categorias = $this->dame_categorias();   
+        $categorias = $this->dame_categorias();  
         
         //creo el array con datos de configuración para la vista      
         $cuerpo = $this->load->view('Cuerpo', Array('libros' => $libros, 'categorias' => $categorias), true);

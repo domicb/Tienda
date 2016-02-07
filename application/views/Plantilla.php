@@ -51,16 +51,14 @@
                         </li>
                         <li>
                             <a href="#">Contact</a>
-                        </li>                       
+                        </li>                                              
+                         <?php if($this->session->userdata('username')):?>
+                        <li>  <a href="<?=base_url().'index.php/Login/logout'?>">Cerrar Sesión</a></li>
+                             <?php else:?>
+                        <li>  <a href="<?=base_url().'index.php/Login/'?>">Identificate</a></li>                                                                 
+                          <?php endif;?>                      
                         <li>
-                            <a href="#">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                        </li>
-                         <li>
-                             <a href="<?=base_url().'index.php/Login_c/login'?>">Identificate</a>
+                            <a href="#"><img src="<?=base_url()?>Assets/img/user.png"></a>
                         </li>
                         <li>
                             <a href="http://www.pccomponentes.es">Ver carrito!

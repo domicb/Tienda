@@ -60,7 +60,7 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </li>
                          <li>
-                             <a href="<?=base_url().'index.php/Login_c/login'?>">Identificate</a>
+                             <a href="<?=base_url().'index.php/Login/'?>">Identificate</a>
                         </li>
                         <li>
                             <a href="http://www.pccomponentes.es">Ver carrito!

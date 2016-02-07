@@ -28,7 +28,7 @@ class Compras extends CI_Controller {
         $carrito->add($articulo);
         $res = $carrito->get_content();
         
-        echo "<pre>"; print_r($res); echo "</pre>";
+        //echo "<pre>"; print_r($res); echo "</pre>";
         $carro = $this->load->view('Carro', Array('articulos' =>$res),true);  
         $this->load->view('Plantilla_carro',Array('carro' => $carro));
         

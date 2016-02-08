@@ -17,7 +17,8 @@ class Envio_email extends CI_Controller {
         $this->load->view('envio_email_view', $data);
     }
 
-    function nuevo_usuario() {
+    function nuevo_usuario() 
+    {
         if (isset($_POST['grabar']) and $_POST['grabar'] == 'si') {
             //SI EXISTE EL CAMPO OCULTO LLAMADO GRABAR CREAMOS LAS VALIDACIONES
             $this->form_validation->set_rules('nom', 'Nombre', 'required|trim|xss_clean');

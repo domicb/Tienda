@@ -8,9 +8,8 @@ class Productos extends CI_Controller {
         $this->load->model('Tienda_model');
     }
 
-    function index($desde = 0) {
-            //cache       
-         $this -> output->cache(10);
+    function index($desde = 0) {          
+         //$this -> output->cache(10);
         
         $pages=4; //Número de registros mostrados por páginas
 	$this->load->library('pagination'); //Cargamos la librería de paginación

@@ -59,10 +59,11 @@
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </li>
+                         <?php if($this->session->userdata('username')):?>
                         <li>
                             <a href="<?=base_url().'index.php/Usuarios_ci'?>"><img src="<?=base_url()?>Assets/img/user.png"></a>
                         </li>
-                         <?php if($this->session->userdata('username')):?>
+               
                         <li>  <a href="<?=base_url().'index.php/Login/logout'?>">Cerrar Sesión</a></li>
                              <?php else:?>
                         <li>  <a href="<?=base_url().'index.php/Login/'?>">Identificate</a></li>                                                                 

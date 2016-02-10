@@ -16,13 +16,14 @@
     <div class="container">
         <div class="col-md-12">
             <div class="col-md-4"></div>
-            <div class="col-md-4" id="login">
-                <form class="form-signin" role="form" action="<?=base_url()?>index.php/Login/" method="POST">
+            <div class="col-md-4" id="login"><?php if(isset($noen)){echo $noen;}?>
+                <h3>Introduce los datos del usuario </h3>
+                <form class="form-signin" role="form" action="<?=base_url()?>index.php/Baja_usuario/" method="POST">
                     <div class="text-center">
                         <img id="avatar" src="<?=base_url()?>Assets/img/nadie.png" alt="avatar">
                     </div>
-                    <input id="txtEmail" type="email" name="username" class="form-control" placeholder="Email">
-                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <input id="txtEmail" type="email" name="user" class="form-control" placeholder="Email">
+                    <input type="password" class="form-control" name="pass" placeholder="Password">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Dar de baja</button>
                 </form>
             </div>

@@ -1,8 +1,18 @@
 <?php
+class Usuarios_ci extends CI_Controller {
+    
+    function __construct() {
+        parent::__construct();
+         //cargo el modelo de artículos
+        $this->load->model('Tienda_model');
+        $this->load->model('Usuarios_model');
+    }
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+    function index() 
+    {
+        $carro = $this->load->view('Vista_usuario','',true);
+        $this->load->view('Plantilla_carro',Array('carro' => $carro));
+        
+    }  
+    
+}

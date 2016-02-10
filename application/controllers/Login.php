@@ -10,12 +10,12 @@ class Login extends CI_Controller
     }
 	
 	public function index()
-        {	
+        {	           
             if(isset($_POST['username']) && isset($_POST['password']))
             {
                 $pass = $_POST['password'];
                 $ema = $_POST['username'];
-                //si la sesion está creada
+                //si la sesion está creada redirigimos a inicio
                 if($this->session->userdata('username'))
                 {
                     redirect(base_url());
@@ -27,7 +27,7 @@ class Login extends CI_Controller
                      redirect(base_url());
                  }
                  else
-                 {
+                 {//si no tiene cuenta lo mandamos de nuevo al login
                      redirect(base_url().'index.php/Login/');                  
                  }
             }

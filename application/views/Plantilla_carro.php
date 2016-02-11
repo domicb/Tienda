@@ -85,7 +85,7 @@
             if (isset($carro)) {
                 echo $carro;
             } else {
-                echo 'array vacio';
+                echo 'El carrito está vacio';
             }
             ?>
             </span>

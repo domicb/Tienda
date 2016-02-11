@@ -1,4 +1,4 @@
-<html lang="es">
+
 
 <head>
     <meta charset="utf-8">
@@ -37,5 +37,3 @@
      <script src="<?=base_url()?>Assets/js/bootstrap.min.js"></script>
     <script src="<?=base_url()?>Assets/js/script.js"></script>
 </body>
-
-</html>

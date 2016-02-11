@@ -1,23 +1,22 @@
-
 <center>
 <fieldset>
-	<legend>Formulario de registro</legend>
-		<?php echo form_open(base_url()."index.php/Envio_email/nuevo_usuario") ?>
+	<legend>Modificando perfil</legend>
+		<?php echo form_open(base_url()."index.php/Usuarios_ci/updateUsuario") ?>
 			<table>
 				<tr>
 					<td>
 						Nombre:
 					</td>
 					<td>
-						<input type="text" class="form-control" name="nom" value="<?php echo set_value('nom') ?>" />
+						<input type="text" class="form-control" name="name" value="<?php echo set_value('name') ?>" />
 					</td>
 				</tr>
-				<tr><input type="hidden" name="grabar" class="form-control" value="si" />
+				<tr><input type="hidden" name="modificar" class="form-control" value="si" />
 					<td>
 						Email:
 					</td>
 					<td>
-						<input type="text" name="correo" class="form-control" class="form-control" value="<?php echo set_value('correo') ?>" />
+						<input type="text" name="email" class="form-control" class="form-control" value="<?php echo set_value('email') ?>" />
 					</td>
 				</tr>
 				<tr>
@@ -25,7 +24,7 @@
 						Usuario:
 					</td>
 					<td>
-						<input type="text" name="nick" class="form-control" value="<?php echo set_value('nick') ?> "/>
+						<input type="text" name="username" class="form-control" value="<?php echo set_value('username') ?> "/>
 					</td>
 				</tr>
 				<tr>
@@ -33,7 +32,7 @@
 						Password:
 					</td>
 					<td>
-						<input type="password" class="form-control" name="pass" />
+						<input type="password" class="form-control" name="password" />
 					</td>
 				</tr>
                                 <tr>
@@ -49,7 +48,7 @@
 						Direccion:
 					</td>
 					<td>
-						<input type="text" class="form-control" name="dir" alue="<?php echo set_value('dir') ?>"/>
+						<input type="text" class="form-control" name="addres" alue="<?php echo set_value('addres') ?>"/>
 					</td>
 				</tr>
                                 <tr>
@@ -87,5 +86,3 @@
 		<?php echo form_close() ?>
 </fieldset>
 </center>
-
-

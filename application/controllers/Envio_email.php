@@ -14,7 +14,9 @@ class Envio_email extends CI_Controller {
     function index() {
         $data['title'] = 'Formulario de registro';
         $data['head'] = 'Reg�strate desde aqu�';
-        $this->load->view('envio_email_view', $data);
+        $carro = $this->load->view('envio_email_view', $data,true);
+        $this->load->view('Plantilla_carro',Array('carro' => $carro) );
+        
     }
 
     function nuevo_usuario() 
@@ -68,24 +70,7 @@ class Envio_email extends CI_Controller {
                 //si el modelo nos responde afirmando que todo ha ido bien, env�amos un correo
                 //al usuario y lo redirigimos al index, en verdad deber�amos redirigirlo al home de
                 //nuestra web para que puediera iniciar sesi�n
-                $config = array(
-                    'protocol' => 'smtp',
-                    'smtp_host' => 'mail.iessansebastian.com',
-                    'smtp_port' => 465,
-                    'smtp_user'=> 'aula4@iessansebastian.com',                    
-                    'smtp_pass' => 'daw2alumno',
-                    'mailtype' => 'html',
-                    'charset' => 'utf-8',
-                    'newline' => "\r\n"
-                );
-
-                $this->email->initialize($config);
-                $this->email->from('aqui el email que quieres que env�e los datos', 'uno-de-piera.com');
-                $this->email->to($correo);
-                $this->email->subject('Bienvenido/a a uno-de-piera.com');
-                $this->email->message('<h2>' . $nombre . ' gracias por registrarte en uno-de-piera.com</h2><hr><br><br>
-				Tu nombre de usuario es: ' . $nick . '.<br>Tu password es: ' . $password);
-                $this->email->send();
+               
                 //creo el array con datos de configuración para la vista      
                 $carro = '<div class="alert alert-success">Se ha registrado satisfacctoriamente en unos minutos
     le llegará un correo electronico con la informacion de su cuenta grácias por confirar en nosotros!.</div>';

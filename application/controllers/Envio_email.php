@@ -29,7 +29,7 @@ class Envio_email extends CI_Controller {
             $this->form_validation->set_rules('pass', 'Password', 'required|trim|xss_clean|md5');
             $this->form_validation->set_rules('ape', 'Apellidos', 'required|trim|xss_clean');
             $this->form_validation->set_rules('dir', 'Direccion', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('cp', 'Codigo Postal', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('cp', 'Codigo Postal', 'required|trim|max_length[5]|min_length[5]|xss_clean');
             $this->form_validation->set_rules('dni', 'DNI', 'required|trim|xss_clean');
 
             //SI HAY ALG�NA REGLA DE LAS ANTERIORES QUE NO SE CUMPLE MOSTRAMOS EL MENSAJE

@@ -1,7 +1,7 @@
 <center>
 <fieldset>
 	<legend>Modificando perfil</legend>
-		<?php echo form_open(base_url()."index.php/Usuarios_ci/updateUsuario") ?>
+		<?php echo form_open(base_url()."index.php/Usuarios_ci/") ?>
 			<table>
 				<tr>
 					<td>

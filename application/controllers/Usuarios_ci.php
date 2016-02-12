@@ -16,7 +16,7 @@ class Usuarios_ci extends CI_Controller {
 
     function index() {               
      
-        if(isset($_POST['modificar']))
+        if(isset($_POST['guardar']))
         {       
             $email = $this->session->userdata('username');
             $this->updateUsuario($email);
@@ -25,7 +25,9 @@ class Usuarios_ci extends CI_Controller {
         {
             $carro = $this->load->view('Modificar', '', true);
             $this->load->view('Plantilla_carro', Array('carro' => $carro));
+        
         }
+    
     }
 
     function updateUsuario($email) {

@@ -35,7 +35,7 @@
 					<td>
 						<input type="password" class="form-control" name="pass" />
 					</td>
-				</tr>
+                              
                                 <tr>
 					<td>
 						Apellidos:
@@ -49,7 +49,7 @@
 						Direccion:
 					</td>
 					<td>
-						<input type="text" class="form-control" name="dir" alue="<?php echo set_value('dir') ?>"/>
+						<input type="text" class="form-control" name="dir" value="<?php echo set_value('dir') ?>"/>
 					</td>
 				</tr>
                                 <tr>
@@ -57,7 +57,7 @@
 						Código postal:
 					</td>
 					<td>
-						<input type="text" name="cp" class="form-control" alue="<?php echo set_value('cp') ?>"/>
+						<input type="text" name="cp" class="form-control" value="<?php echo set_value('cp') ?>"/>
 					</td>
 				</tr>
                                 <tr>
@@ -65,7 +65,7 @@
 						DNI:
 					</td>
 					<td>
-						<input type="text" name="dni" class="form-control" alue="<?php echo set_value('dni') ?>"/>
+						<input type="text" name="dni" class="form-control" value="<?php echo set_value('dni') ?>"/>
 					</td>
 				</tr>
 				<tr>
@@ -78,7 +78,7 @@
 					<td>
                                             
 					</td>
-					<td>
+                                        <td><br>
                                                  <a href="<?=site_url().'index.php/Productos/'?>"><button type="button" class="btn btn-primary">Volver</button></a>
 						<input type="submit" class="btn btn-success" value="Registrarme" title="Registrarme" />
 					</td>

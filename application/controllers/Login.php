@@ -31,8 +31,9 @@ class Login extends CI_Controller
                      redirect(base_url().'index.php/Login/');                  
                  }
             }
-           
-            $this->load->view('Vista_login');
+            
+            $carro = $this->load->view('Vista_login','',true);
+            $this->load->view('Plantilla_carro',Array('carro'=>$carro));
         }
         public function logout()
         {

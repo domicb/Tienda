@@ -79,7 +79,7 @@
 					</td>
 					<td>
                                                  <a href="<?=site_url().'index.php/Productos/'?>"><button type="button" class="btn btn-primary">Volver</button></a>
-						<input type="submit" class="btn btn-success" value="Registrarme" title="Registrarme" />
+						<input type="submit" class="btn btn-success" value="Guardar" title="Guardar" />
 					</td>
 				</tr>
 			</table>

@@ -61,10 +61,10 @@
                         </li>
                          <?php if($this->session->userdata('username')):?>
                         <li>
-                            <a href="<?=base_url().'index.php/Usuarios_ci'?>"><img src="<?=base_url()?>Assets/img/user.png"></a>
+                            <a href="<?=base_url().'index.php/Usuarios_ci/mostrar'?>"><img src="<?=base_url()?>Assets/img/user.png"></a>
                         </li>
                
-                        <li>  <a href="<?=base_url().'index.php/Usuarios_ci'?>"><?=$this->session->userdata('username')?></a></li>
+                        <li>  <a href="<?=base_url().'index.php/Usuarios_ci/mostrar'?>"><?=$this->session->userdata('username')?></a></li>
                              <?php else:?>
                         <li>  <a href="<?=base_url().'index.php/Login/'?>">Identificate</a></li>                                                                 
                           <?php endif;?>                      

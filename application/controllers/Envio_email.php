@@ -9,6 +9,7 @@ class Envio_email extends CI_Controller {
         parent::__construct();
         $this->load->model('Envio_email_model');
         $this->load->helper('dni_helper');
+        $this->load->model('Tienda_model');
     }
 
     function index() {
@@ -42,6 +43,7 @@ class Envio_email extends CI_Controller {
             $this->form_validation->set_rules('dir', 'Direccion', 'required|trim|xss_clean');
             $this->form_validation->set_rules('cp', 'Codigo Postal', 'required|trim|integer|max_length[5]|min_length[5]|xss_clean');
             $this->form_validation->set_rules('dni', 'DNI', 'required|trim|xss_clean|callback_valid');
+            $this->form_validation->set_rules('provincia', 'Provincia', 'required|trim|xss_clean');
 
             //SI HAY ALG�NA REGLA DE LAS ANTERIORES QUE NO SE CUMPLE MOSTRAMOS EL MENSAJE
             //EL COMOD�N %s SUSTITUYE LOS NOMBRES QUE LE HEMOS DADO ANTERIORMENTE, EJEMPLO, 
@@ -67,20 +69,16 @@ class Envio_email extends CI_Controller {
                 $apellidos = $this->input->post('ape');
                 $direccion = $this->input->post('dir');
                 $cp = $this->input->post('cp');
-                $dni = $this->input->post('dni');             
+                $dni = $this->input->post('dni');
+                $provincia = $this->input->post('provincia');
                 
-              
-                    $dniOK = $dni;
-                    $insert = $this->Envio_email_model->new_user($nombre, $correo, $nick, $password, $apellidos, $direccion, $cp, $dniOK);                               
+                //si esta todo correcto insertamos el nuevo usuario
+                    $insert = $this->Envio_email_model->new_user($nombre, $correo, $nick, $password, $apellidos, $direccion, $cp, $dni,$provincia);                               
                     
                 $carro = '<div class="alert alert-success">Se ha registrado satisfacctoriamente en unos minutos
     le llegará un correo electronico con la informacion a su cuenta '.$correo.' grácias por confirar en nosotros!.</div>';
                 //cargo la vista pasando los datos de configuacion
                 $this->load->view('Plantilla_carro', Array('carro' => $carro));
-     
-
-                //$provincia = $this->input->post('prov');
-                //$prov = $this->Envio_email_model->get_provincia($provincia);
 
             }
         }

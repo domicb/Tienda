@@ -15,7 +15,7 @@ class Baja_usuario extends CI_Controller {
         if (isset($_POST['user']) && isset($_POST['pass'])) {
             $ema = $_POST['user'];
             $pass = $_POST['pass'];
-            $ok = $this->Usuarios_model->bajaUsuario($ema, md5($pass));
+            $ok = $this->Usuarios_model->bajaUsuario($ema, $pass);
             if ($ok == false) 
                 {//si no se ha borrado comunicamos volviendo al formulari                 
                 $noen = '<div class="alert alert-warning">No se ha encontrado ningun usuario con ese email ' . $ema . '!.</div>';

@@ -21,7 +21,7 @@ class Login extends CI_Controller
                     redirect(base_url());
                 }
                 //si devuelve 1 es true sino false
-                 if($this->Usuarios_model->ValidarUsuario($ema,md5($pass)))
+                 if($this->Usuarios_model->ValidarUsuario($ema,$pass))
                  {//si no estaba logeado pero si esta en la base de datos le damos acceso con set_userdata
                      $this->session->set_userdata('username',$ema);
                      redirect(base_url());

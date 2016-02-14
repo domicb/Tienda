@@ -8,11 +8,11 @@ class Envio_email_model extends CI_Model
 	
 	//realizamos la inserci�n de los datos y devolvemos el 
 	//resultado al controlador para env�ar el correo si todo ha ido bien
-	function new_user($nombre,$correo,$nick,$password,$apellidos,$direccion,$cp,$dni)
+	function new_user($nombre,$correo,$nick,$password,$apellidos,$direccion,$cp,$dni,$provincia)
 	{
        $data = array(
             'idusuario' => null,
-            'provincia_idprovincia' => 1,
+            'provincia' => $provincia,
             'username' => $nick,
             'password' => $password,
             'dni' => $dni,

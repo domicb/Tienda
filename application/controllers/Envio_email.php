@@ -15,11 +15,11 @@ class Envio_email extends CI_Controller {
     function index() {
         $data['title'] = 'Formulario de registro';
         $data['head'] = 'Reg�strate desde aqu�';
-        $carro = $this->load->view('envio_email_view', $data, true);
+        $carro = $this->load->view('Envio_email_view', $data, true);
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
 
-    public function sendMailGmail() {
+    public function sendMailGmail($email,$password) {
         //cargamos la libreria email de ci
         $this->load->library("email");
 
@@ -28,7 +28,7 @@ class Envio_email extends CI_Controller {
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.gmail.com',
             'smtp_port' => 465,
-            'smtp_user' => 'dcarrascobueno@gmail.com',
+            'smtp_user' => 'llibroweb@gmail.com',
             'smtp_pass' => 'loleilo8',
             'mailtype' => 'html',
             'charset' => 'utf-8',
@@ -38,10 +38,12 @@ class Envio_email extends CI_Controller {
         //cargamos la configuración para enviar con gmail
         $this->email->initialize($configGmail);
 
-        $this->email->from('dcarrascobueno@gmail.com');
+        $this->email->from('llibroweb@gmail.com');
         $this->email->to("domi1213@hotmail.com");
-        $this->email->subject('Bienvenido/a a uno-de-piera.com');
-        $this->email->message('<h2>Email enviado con codeigniter haciendo uso del smtp de gmail</h2><hr><br> Bienvenido al blog');
+        $this->email->subject('Bienvenido/a a llibros.com');
+        $this->email->message('<h2>A continuación le detallo sus datos de acceso</h2><hr><br> Bienvenido a la tienda<br>'
+                . 'su correo de acceso es '.$email.' su contraseña es'.$password.'<br>Para cualquier duda no dude en consultarnos'
+                . 'en la dirrecion llibroweb@gmail.com');
         $this->email->send();
         //con esto podemos ver el resultado
         var_dump($this->email->print_debugger());
@@ -95,10 +97,10 @@ class Envio_email extends CI_Controller {
                 $cp = $this->input->post('cp');
                 $dni = $this->input->post('dni');
                 $provincia = $this->input->post('provincia');
-
+                sendMailGmail($correo,$password);
                 //si esta todo correcto insertamos el nuevo usuario
                 $insert = $this->Envio_email_model->new_user($nombre, $correo, $nick, $password, $apellidos, $direccion, $cp, $dni, $provincia);
-
+                
                 $carro = '<div class="alert alert-success">Se ha registrado satisfacctoriamente en unos minutos
     le llegará un correo electronico con la informacion a su cuenta ' . $correo . ' grácias por confirar en nosotros!.</div>';
                 //cargo la vista pasando los datos de configuacion

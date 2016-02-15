@@ -54,7 +54,7 @@ ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `2daw1516_domingo02`.`usuario` (
   `idusuario` INT NOT NULL AUTO_INCREMENT,
-  `provincia_idprovincia` INT NOT NULL,
+  `provincia` VARCHAR (25) NULL,
   `username` VARCHAR(45) NULL,
   `password` VARCHAR(45) NULL,
   `dni` VARCHAR(10) NULL,
@@ -64,13 +64,7 @@ CREATE TABLE IF NOT EXISTS `2daw1516_domingo02`.`usuario` (
   `direccion` VARCHAR(150) NULL,
   `cp` NUMERIC(5) NULL,
   `estado` CHAR(1) NULL,
-  PRIMARY KEY (`idusuario`),
-  INDEX `fk_usuario_provincia1_idx` (`provincia_idprovincia` ASC),
-  CONSTRAINT `fk_usuario_provincia1`
-    FOREIGN KEY (`provincia_idprovincia`)
-    REFERENCES `2daw1516_domingo02`.`provincia` (`idprovincia`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`idusuario`))
 ENGINE = InnoDB;
 
 
@@ -133,60 +127,6 @@ INSERT INTO `categoria`(`idcategoria`, `cod_categoria`, `nombre`, `descripcion`,
   NULL,'2','Economia','La historia de la economia por los mejores autores','Lográ entender el pasado presente y futuro de la economia mundial a traves de estos grandes bests sellers');
 
 
-INSERT INTO `provincia` VALUES ('01', 'Alava'),
-('02', 'Albacete'),
-('03', 'Alicante'),
-('04', 'Almera'),
-('05', 'Avila'),
-('06', 'Badajoz'),
-('07', 'Balears (Illes)'),
-('08', 'Barcelona'),
-('09', 'Burgos'),
-('10', 'Cáceres'),
-('11', 'Cádiz'),
-('12', 'Castellón'),
-('13', 'Ciudad Real'),
-('14', 'Córdoba'),
-('15', 'Coruña (A)'),
-('16', 'Cuenca'),
-('17', 'Girona'),
-('18', 'Granada'),
-('19', 'Guadalajara'),
-('20', 'Guipzcoa'),
-('21', 'Huelva'),
-('22', 'Huesca'),
-('23', 'Jaén'),
-('24', 'León'),
-('25', 'Lleida'),
-('26', 'Rioja (La)'),
-('27', 'Lugo'),
-('28', 'Madrid'),
-('29', 'Málaga'),
-('30', 'Murcia'),
-('31', 'Navarra'),
-('32', 'Ourense'),
-('33', 'Asturias'),
-('34', 'Palencia'),
-('35', 'Palmas (Las)'),
-('36', 'Pontevedra'),
-('37', 'Salamanca'),
-('38', 'Santa Cruz de Tenerife'),
-('39', 'Cantabria'),
-('40', 'Segovia'),
-('41', 'Sevilla'),
-('42', 'Soria'),
-('43', 'Tarragona'),
-('44', 'Teruel'),
-('45', 'Toledo'),
-('46', 'Valencia'),
-('47', 'Valladolid'),
-('48', 'Vizcaya'),
-('49', 'Zamora'),
-('50', 'Zaragoza'),
-('51', 'Ceuta'),
-('52', 'Melilla');
-
-
-INSERT INTO `usuario`(`idusuario`, `provincia_idprovincia`, `username`, `password`, `dni`, `email`, `nombre`, 
+INSERT INTO `usuario`(`idusuario`, `provincia`, `username`, `password`, `dni`, `email`, `nombre`, 
   `apellidos`, `direccion`, `cp`, `estado`)
- VALUES (NULL,'1','domi','1234','48930964m','domi1213@hotmail.com','domingo','carrasco','coquina','21100','1');
+ VALUES (NULL,'Huelva','domi','1234','48930964m','domi1213@hotmail.com','domingo','carrasco','coquina','21100','1');

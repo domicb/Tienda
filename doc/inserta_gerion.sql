@@ -139,7 +139,8 @@ Narra las peripecias de dos españoles enviados a Francia por la Real Academia E
   'c2/kant.jpg',
   '21',
   'Se trata de una indagación trascendental acerca de las condiciones epistémicas del conocer humano
-  cuyo objetivo central es lograr una respuesta definitiva sobre si la metafísica puede ser considerada
+  
+  usuario cuyo objetivo central es lograr una respuesta definitiva sobre si la metafísica puede ser considerada
   una ciencia',
   'En esta obra, Kant intenta la conjunción de racionalismo y empirismo, haciendo una crítica de las 
   dos corrientes filosóficas que se centraban en el objeto como fuente de conocimiento, y así, dando un

@@ -44,14 +44,6 @@ ENGINE = InnoDB;
 
 
 
-CREATE TABLE IF NOT EXISTS `tienda`.`provincia` (
-  `idprovincia` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NULL,
-  PRIMARY KEY (`idprovincia`))
-ENGINE = InnoDB;
-
-
-
 CREATE TABLE IF NOT EXISTS `tienda`.`usuario` (
   `idusuario` INT NOT NULL AUTO_INCREMENT,
   `provincia` VARCHAR (25) NULL,

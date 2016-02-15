@@ -12,10 +12,10 @@
         <title>Tienda</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="<?=base_url()?>Assets/css/bootstrap.min.css" rel="stylesheet">
-         <script src="<?=base_url()?>Assets/js/jquery2.min.js"></script>
+        <link href="<?= base_url() ?>Assets/css/bootstrap.min.css" rel="stylesheet">
+        <script src="<?= base_url() ?>Assets/js/jquery2.min.js"></script>
         <!-- Custom CSS -->
-        <link href="<?=base_url()?>Assets/css/heroic-features.css" rel="stylesheet">
+        <link href="<?= base_url() ?>Assets/css/heroic-features.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,7 +38,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?=site_url()?>">Inicio</a>
+                    <a class="navbar-brand" href="<?= site_url() ?>">Inicio</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -54,25 +54,25 @@
                         </li>      
                         <li>
                             <a href="#">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                         </li>
-                         <?php if($this->session->userdata('username')):?>
+                        <?php if ($this->session->userdata('username')): ?>
+                            <li>
+                                <a href="<?= base_url() . 'index.php/Usuarios_ci/mostrar' ?>"><img src="<?= base_url() ?>Assets/img/user.png"></a>
+                            </li>
+
+                            <li>  <a href="<?= base_url() . 'index.php/Usuarios_ci/mostrar' ?>"><?= $this->session->userdata('username') ?></a></li>
+                        <?php else: ?>
+                            <li>  <a href="<?= base_url() . 'index.php/Login/' ?>">Identificate</a></li>                                                                 
+                        <?php endif; ?>                      
                         <li>
-                            <a href="<?=base_url().'index.php/Usuarios_ci/mostrar'?>"><img src="<?=base_url()?>Assets/img/user.png"></a>
+                            <a href="<?= base_url() . 'index.php/Compras/micarro/' ?>">Ver carrito!
                         </li>
-               
-                        <li>  <a href="<?=base_url().'index.php/Usuarios_ci/mostrar'?>"><?=$this->session->userdata('username')?></a></li>
-                             <?php else:?>
-                        <li>  <a href="<?=base_url().'index.php/Login/'?>">Identificate</a></li>                                                                 
-                          <?php endif;?>                      
                         <li>
-                            <a href="http://www.pccomponentes.es">Ver carrito!
-                        </li>
-                        <li>
-                            <img src="<?=base_url()?>Assets/img/carrito.png"></a>
+                            <img src="<?= base_url() ?>Assets/img/carrito.png"></a>
                         </li>
                     </ul>
                 </div>
@@ -82,20 +82,20 @@
         </nav>
         <!-- Page Content -->
         <div class="container">
-            
+
             <!-- Jumbotron Header -->
             <header class="jumbotron hero-spacer">
                 <h1>Bienvenido!</h1>
                 <p>Tan solo por la educación puede el hombre llegar a ser hombre. El hombre no es más que lo que la educación hace de él.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Immanuel Kant.</p>
                 <p><a class="btn btn-primary btn-large" id="des">Ver catálogo!</a>
                 </p> 
-                
+
                 <script type="text/javascript">
-                $("#des").click(function(){
-                    var posicion = $("#aqui").offset().top;            
-                        $("html, body").animate({scrollTop:posicion});
-                });
-            </script>
+                    $("#des").click(function () {
+                        var posicion = $("#aqui").offset().top;
+                        $("html, body").animate({scrollTop: posicion});
+                    });
+                </script>
             </header>
 
             <hr>
@@ -112,19 +112,19 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active" align="center">
-                        <img width="250" height="150" src="<?=base_url()?>Assets/img/c1/amos_del_mundo.jpg" alt="Chania">
+                        <img width="250" height="150" src="<?= base_url() ?>Assets/img/c1/amos_del_mundo.jpg" alt="Chania">
                     </div>
 
                     <div class="item" align="center">
-                        <img width="250" height="150" src="<?=base_url()?>Assets/img/c1/contra_la_ceguera.jpg" alt="Chania">
+                        <img width="250" height="150" src="<?= base_url() ?>Assets/img/c1/contra_la_ceguera.jpg" alt="Chania">
                     </div>
 
                     <div class="item" align="center">
-                        <img  width="250" height="150" src="<?=base_url()?>Assets/img/c1/hombres_buenos.jpg" alt="Flower">
+                        <img  width="250" height="150" src="<?= base_url() ?>Assets/img/c1/hombres_buenos.jpg" alt="Flower">
                     </div>
-                    
+
                     <div class="item" align="center">
-                        <img  width="250" height="150" src="<?=base_url()?>Assets/img/c1/espana.jpg" alt="Flower">
+                        <img  width="250" height="150" src="<?= base_url() ?>Assets/img/c1/espana.jpg" alt="Flower">
                     </div>
 
                 </div>
@@ -142,26 +142,32 @@
 
             <hr>
             <span id="aqui">
-            <!-- AQUI VA EL CUERPO CON PHP -->
-            <?php
-            if (isset($cuerpo)) {
-                echo $cuerpo;
-            } else {
-                echo 'array vacio';
-            }
-            ?>
+                <!-- AQUI VA EL CUERPO CON PHP -->
+                <?php
+                if (isset($cuerpo)) {
+                    echo $cuerpo;
+                } else {
+                    echo 'array vacio';
+                }
+                ?>
             </span>
-            
+
             <hr>
             <!-- PAGINACION -->
-            <center><a class="btn btn-primary btn-large" id="arri">Volver Arriba!</a></center>
+            <center><a class="btn btn-primary btn-large" id="arri">Volver Arriba!</a>                
+                <hr>
+                Inporta tu archivo xml
+                <form action="demo_form.asp">
+                    <input type="file" name="pic" accept="file_extension*/xml" onchange="handleFiles(this.files)">
+                    <input type="submit">
+                </form></center>
             <script type="text/javascript">
-                $("#arri").click(function(){
-                   $('body,html').animate({scrollTop : 0}, 500);
+                $("#arri").click(function () {
+                    $('body,html').animate({scrollTop: 0}, 500);
                 });
             </script>
             <hr>
-            
+
             <!-- Footer -->
             <footer>
                 <div class="row">
@@ -175,10 +181,10 @@
         <!-- /.container -->
 
         <!-- jQuery -->
-        <script src="<?=base_url()?>Assets/js/jquery.js"></script>
+        <script src="<?= base_url() ?>Assets/js/jquery.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="<?=base_url()?>Assets/js/bootstrap.min.js"></script>
+        <script src="<?= base_url() ?>Assets/js/bootstrap.min.js"></script>
 
     </body>
 

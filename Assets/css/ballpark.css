@@ -1,0 +1,50 @@
+/*a.dark, .navbar-brand{
+color: #2c3e50 !important;
+}*/
+
+.nav-sidebar li.active a.dark{
+    background-color:#2c3e50;
+}
+
+
+li.active a.dark{
+color: #ffffff !important;
+}
+
+.btn-primary{
+	margin-top:10px;
+}
+
+#address{
+width: 400px;
+}
+
+#panel{
+margin-top: 20px;
+}
+
+input, button, select, textarea {
+	margin:5px;
+}
+
+.divider {
+    background-color: #e5e5e5;
+    height: 1px;
+    margin: 9.5px 0;
+    overflow: hidden;
+}
+
+#pagination a, #pagination strong{
+    margin-right: 10px;
+}
+/*
+.table table-striped thead{
+    
+    background-color:#ffffff;
+}
+
+.table table-striped thead tr th{
+    
+    font-size: 14px;
+    font-weight: bold;
+}*/

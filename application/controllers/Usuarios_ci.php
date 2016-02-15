@@ -10,6 +10,11 @@ class Usuarios_ci extends CI_Controller {
         $this->load->helper('dni_helper');
         $this->load->model('Usuarios_model');
     }
+    function contra()
+    {
+         $carro = $this->load->view('Contra','',true);
+         $this->load->view('Plantilla_carro',Array('carro'=>$carro));
+    }
 
     function mostrar() {
         $carro = $this->load->view('Vista_usuario', '', true);
@@ -81,6 +86,7 @@ class Usuarios_ci extends CI_Controller {
                 $this->load->view('Plantilla_carro', Array('carro' => $carro));
             }
         }
+               
     }
 
 }

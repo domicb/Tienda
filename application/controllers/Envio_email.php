@@ -18,18 +18,42 @@ class Envio_email extends CI_Controller {
         $carro = $this->load->view('envio_email_view', $data, true);
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
-    function valid($dni)
-    {
+
+    public function sendMailGmail() {
+        //cargamos la libreria email de ci
+        $this->load->library("email");
+
+        //configuracion para gmail
+        $configGmail = array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.gmail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'dcarrascobueno@gmail.com',
+            'smtp_pass' => 'loleilo8',
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'newline' => "\r\n"
+        );
+
+        //cargamos la configuración para enviar con gmail
+        $this->email->initialize($configGmail);
+
+        $this->email->from('dcarrascobueno@gmail.com');
+        $this->email->to("domi1213@hotmail.com");
+        $this->email->subject('Bienvenido/a a uno-de-piera.com');
+        $this->email->message('<h2>Email enviado con codeigniter haciendo uso del smtp de gmail</h2><hr><br> Bienvenido al blog');
+        $this->email->send();
+        //con esto podemos ver el resultado
+        var_dump($this->email->print_debugger());
+    }
+
+    function valid($dni) {
         $validado = dni_NIF_NIE_Ok($dni);
-        if ($validado == 1)
-        {
+        if ($validado == 1) {
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
-
     }
 
     function nuevo_usuario() {
@@ -55,7 +79,7 @@ class Envio_email extends CI_Controller {
             $this->form_validation->set_message('max_length', 'El %s es demasiado largo');
             $this->form_validation->set_message('integer', 'El %s debe ser de números enteros');
             $this->form_validation->set_message('valid', 'El %s no es válido');
-                     
+
 
             //SI ALGO NO HA IDO BIEN NOS DEVOLVER� AL INDEX MOSTRANDO LOS ERRORES
             if ($this->form_validation->run() == FALSE) {
@@ -71,15 +95,14 @@ class Envio_email extends CI_Controller {
                 $cp = $this->input->post('cp');
                 $dni = $this->input->post('dni');
                 $provincia = $this->input->post('provincia');
-                
+
                 //si esta todo correcto insertamos el nuevo usuario
-                    $insert = $this->Envio_email_model->new_user($nombre, $correo, $nick, $password, $apellidos, $direccion, $cp, $dni,$provincia);                               
-                    
+                $insert = $this->Envio_email_model->new_user($nombre, $correo, $nick, $password, $apellidos, $direccion, $cp, $dni, $provincia);
+
                 $carro = '<div class="alert alert-success">Se ha registrado satisfacctoriamente en unos minutos
-    le llegará un correo electronico con la informacion a su cuenta '.$correo.' grácias por confirar en nosotros!.</div>';
+    le llegará un correo electronico con la informacion a su cuenta ' . $correo . ' grácias por confirar en nosotros!.</div>';
                 //cargo la vista pasando los datos de configuacion
                 $this->load->view('Plantilla_carro', Array('carro' => $carro));
-
             }
         }
     }

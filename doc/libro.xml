@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE libro[
+<!ELEMENT libro (descripcion,anuncio)>
+<!ATTLIST libro nombre CDATA #REQUIRED>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT anuncio (#PCDATA)>
+]>
+
+<libro nombre="Importado xml">
+	<descripcion>Importando desde xml</descripcion>
+	<anuncio>Este libro esta siendo importado desde xml</anuncio>
+</libro>

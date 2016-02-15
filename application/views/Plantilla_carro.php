@@ -74,6 +74,11 @@
                         <li>
                             <img src="<?=base_url()?>Assets/img/carrito.png"></a>
                         </li>
+                         <?php if ($this->session->userdata('username')== 'serujio@serujio.com'): ?>
+                        <li>                            
+                            <a href="<?= base_url() . 'index.php/scaffolding/' ?>">Panel de control
+                        </li>
+                        <?php endif; ?>  
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

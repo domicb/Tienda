@@ -43,6 +43,7 @@ class Envio_email extends CI_Controller {
         $this->email->message('<h1>Bienvenido a la tienda '.$nombre.'</h1><br><br><h3>Se ha registrado satisfactoriamente</h3><hr><br> '
                 . 'Su correo de acceso es '.$email.'<br>Para cualquier duda no dude en consultarnos'
                 . 'en la dirrecion llibroweb@gmail.com<br>'
+                . 'Visitanos en http://iessansebastian.com/alumnos/2daw1516/domingo/Tienda/'
                 . '<b>Este correo ha sido generado automáticamente por favor no respenda a este correo.</b>');
         $this->email->send();
         //con esto podemos ver el resultado

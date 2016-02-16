@@ -19,10 +19,9 @@ class Envio_email extends CI_Controller {
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
 
-    public function sendMailGmail($email,$password) {
+    public function sendMailGmail($email,$password,$nombre) {
         //cargamos la libreria email de ci
         $this->load->library("email");
-
         //configuracion para gmail
         $configGmail = array(
             'protocol' => 'smtp',
@@ -41,12 +40,13 @@ class Envio_email extends CI_Controller {
         $this->email->from('llibroweb@gmail.com');
         $this->email->to("domi1213@hotmail.com");
         $this->email->subject('Bienvenido/a a llibros.com');
-        $this->email->message('<h2>A continuación le detallo sus datos de acceso</h2><hr><br> Bienvenido a la tienda<br>'
-                . 'su correo de acceso es '.$email.' su contraseña es'.$password.'<br>Para cualquier duda no dude en consultarnos'
-                . 'en la dirrecion llibroweb@gmail.com');
+        $this->email->message('<h1>Bienvenido a la tienda '.$nombre.'</h1><br><br><h3>Se ha registrado satisfactoriamente</h3><hr><br> '
+                . 'Su correo de acceso es '.$email.'<br>Para cualquier duda no dude en consultarnos'
+                . 'en la dirrecion llibroweb@gmail.com<br>'
+                . '<b>Este correo ha sido generado automáticamente por favor no respenda a este correo.</b>');
         $this->email->send();
         //con esto podemos ver el resultado
-        var_dump($this->email->print_debugger());
+       // var_dump($this->email->print_debugger());
     }
 
     function valid($dni) {
@@ -97,12 +97,13 @@ class Envio_email extends CI_Controller {
                 $cp = $this->input->post('cp');
                 $dni = $this->input->post('dni');
                 $provincia = $this->input->post('provincia');
-                sendMailGmail($correo,$password);
+                
+                $this->sendMailGmail($correo,$password,$nombre);
                 //si esta todo correcto insertamos el nuevo usuario
                 $insert = $this->Envio_email_model->new_user($nombre, $correo, $nick, $password, $apellidos, $direccion, $cp, $dni, $provincia);
                 
                 $carro = '<div class="alert alert-success">Se ha registrado satisfacctoriamente en unos minutos
-    le llegará un correo electronico con la informacion a su cuenta ' . $correo . ' grácias por confirar en nosotros!.</div>';
+    le llegará un correo electronico con la informacion de su cuenta a la dirección: ' . $correo . ' grácias por confiar en nosotros!.</div>';
                 //cargo la vista pasando los datos de configuacion
                 $this->load->view('Plantilla_carro', Array('carro' => $carro));
             }

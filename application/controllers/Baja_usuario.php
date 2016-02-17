@@ -19,7 +19,8 @@ class Baja_usuario extends CI_Controller {
             if ($ok == false) 
                 {//si no se ha borrado comunicamos volviendo al formulari                 
                 $noen = '<div class="alert alert-warning">No se ha encontrado ningun usuario con ese email ' . $ema . '!.</div>';
-                $this->load->view('Baja', Array('noen' => $noen));
+                $carro = $this->load->view('Baja', Array('noen' => $noen),true);
+                $this->load->view('Plantilla_carro',Array('carro'=>$carro));
             } 
             else 
                 {

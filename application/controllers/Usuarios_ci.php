@@ -10,21 +10,58 @@ class Usuarios_ci extends CI_Controller {
         $this->load->helper('dni_helper');
         $this->load->model('Usuarios_model');
     }
+    
+     function index() {
+        $data['title'] = 'Modificando datos';
+        $data['head'] = 'Introduce los campos';
+        $carro = $this->load->view('Modificar', $data, true);
+        $this->load->view('Plantilla_carro', Array('carro' => $carro));
+    }
+    
+    function recuperar($id, $token)
+    {
+        if(isset($id) and isset($token))
+        {
+             $this->load->view('Cambiar');
+        }
+        else
+        {
+            //mostrar vista con excepción
+            echo 'nanai';
+        }
+    }
     function contra()
     {
+        if(!isset($_POST['recu']))
+        {
          $carro = $this->load->view('Contra','',true);
          $this->load->view('Plantilla_carro',Array('carro'=>$carro));
+        }
+        else
+        { //si nos han enviado el email comprabamos si existe en la base de datos
+            $ema = $_POST['recu'];
+            if($this->Usuarios_model->existeUsuario($ema))//si existe operamos
+            {//recojemos la clave de la tabla usuario referenciando al id
+                $datosUsuario = $this->Usuarios_model->getUsuario($ema);
+                $aleatorio = $datosUsuario['aleatorio'];
+                $id = $datosUsuario['idusuario'];
+                $this->Envio_email_model->sendMailRecu($ema,$aleatorio,$id);
+                //notificamos en la vista lo ocurrido
+                $noen = '<div class="alert alert-success">Compruebe su dirección de correo para continuar con el restablecimiento de la contraseña!.</div>';
+                $carro = $this->load->view('Contra', Array('noen' => $noen),true);              
+                $this->load->view('Plantilla_carro',Array('carro'=>$carro));
+            }
+            else //si no existe le decimos al usuario que ese email no existe en la bbdd
+            {
+                $noen = '<div class="alert alert-warning">No se ha encontrado ningun usuario con ese email ' . $ema . '!.</div>';
+                $carro = $this->load->view('Contra', Array('noen' => $noen),true);              
+                $this->load->view('Plantilla_carro',Array('carro'=>$carro));
+            }
+        }
     }
 
     function mostrar() {
         $carro = $this->load->view('Vista_usuario', '', true);
-        $this->load->view('Plantilla_carro', Array('carro' => $carro));
-    }
-
-    function index() {
-        $data['title'] = 'Modificando datos';
-        $data['head'] = 'Introduce los campos';
-        $carro = $this->load->view('Modificar', $data, true);
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
 

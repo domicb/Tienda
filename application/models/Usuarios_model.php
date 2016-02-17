@@ -16,6 +16,26 @@ class Usuarios_model extends CI_Model {
             return false;
         }
     }
+    
+    function getClave($email)
+    {
+        $query = $this->db->select('aleatorio');
+        $query = $this->db->where('email',$email);
+        $query = $this->db->get('usuario');
+        return $query->row_array();
+    }
+    
+    
+    function existeUsuario($email)
+    {
+        $query = $this->db->where('email', $email);
+        $query = $this->db->get('usuario');
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     function bajaUsuario($email, $password) {
         $existe = $this->ValidarUsuario($email, $password);

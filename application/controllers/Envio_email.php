@@ -19,36 +19,6 @@ class Envio_email extends CI_Controller {
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
 
-    public function sendMailGmail($email,$password,$nombre) {
-        //cargamos la libreria email de ci
-        $this->load->library("email");
-        //configuracion para gmail
-        $configGmail = array(
-            'protocol' => 'smtp',
-            'smtp_host' => 'ssl://smtp.gmail.com',
-            'smtp_port' => 465,
-            'smtp_user' => 'llibroweb@gmail.com',
-            'smtp_pass' => 'loleilo8',
-            'mailtype' => 'html',
-            'charset' => 'utf-8',
-            'newline' => "\r\n"
-        );
-
-        //cargamos la configuración para enviar con gmail
-        $this->email->initialize($configGmail);
-
-        $this->email->from('llibroweb@gmail.com');
-        $this->email->to("domi1213@hotmail.com");
-        $this->email->subject('Bienvenido/a a llibros.com');
-        $this->email->message('<h1>Bienvenido a la tienda '.$nombre.'</h1><br><br><h3>Se ha registrado satisfactoriamente</h3><hr><br> '
-                . 'Su correo de acceso es '.$email.'<br>Para cualquier duda no dude en consultarnos'
-                . 'en la dirrecion llibroweb@gmail.com<br>'
-                . 'Visitanos en http://iessansebastian.com/alumnos/2daw1516/domingo/Tienda/'
-                . '<b>Este correo ha sido generado automáticamente por favor no respenda a este correo.</b>');
-        $this->email->send();
-        //con esto podemos ver el resultado
-       // var_dump($this->email->print_debugger());
-    }
 
     function valid($dni) {
         $validado = dni_NIF_NIE_Ok($dni);
@@ -99,7 +69,7 @@ class Envio_email extends CI_Controller {
                 $dni = $this->input->post('dni');
                 $provincia = $this->input->post('provincia');
                 
-                $this->sendMailGmail($correo,$password,$nombre);
+                $this->Envio_email_model->sendMailGmail($correo,$nombre);
                 //si esta todo correcto insertamos el nuevo usuario
                 $insert = $this->Envio_email_model->new_user($nombre, $correo, $nick, $password, $apellidos, $direccion, $cp, $dni, $provincia);
                 

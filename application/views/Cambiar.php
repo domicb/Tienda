@@ -20,8 +20,9 @@
                     <div class="text-center">
                         <img id="avatar" src="<?=base_url()?>Assets/img/nadie.png" alt="avatar">
                     </div>
-                    <input id="txtEmail" type="email" name="recu" class="form-control" placeholder="Email">     
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Recuperar contraseña</button>
+                    <input id="txtEmail" type="password" name="pass" class="form-control" placeholder="contraseña">     
+                    <input id="txtEmail" type="password" name="pass1" class="form-control" placeholder="contraseña">   
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Restablecer contraseña</button>
                 </form>
             </div>
         </div>

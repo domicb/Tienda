@@ -86,7 +86,7 @@ class Envio_email_model extends CI_Model
         $this->email->subject('Bienvenido/a a llibros.com');
         $this->email->message('Hemos recibido una peticion de restauración para la contraseña<br>'
                 . 'Si es correcto pulsa sobre el siguiente enlace <br>'.
-                 site_url('Usuarios_ci/recuperar/'.$id.'/'.$enlace)
+                 base_url('index.php/Usuarios_ci/recuperar/'.$id.'/'.$enlace)
                 . '<br>Para cualquier duda no dude en consultarnos '
                 . 'en la dirrecion llibroweb@gmail.com<br>'
                 . '<b>Este correo ha sido generado automáticamente por favor no respenda a este correo.</b>');

@@ -22,7 +22,8 @@ class Usuarios_ci extends CI_Controller {
     {
         if(isset($id) and isset($token))
         {
-             $this->load->view('Cambiar');
+             $carro = $this->load->view('Cambiar',Array('id' => $id),true);
+             $this->load->view('Plantilla_carro',Array('carro'=> $carro));
         }
         else
         {
@@ -30,6 +31,21 @@ class Usuarios_ci extends CI_Controller {
             echo 'nanai';
         }
     }
+    
+    
+    function cambiar()
+    {
+        if(isset($_POST['nueva']) && isset($_POST['nueva1']))
+        {
+              echo '<h1>'. $_POST['id'] .'</h1>';
+        }
+        else 
+        {
+            $carro = $this->load->view('Cambiar','',true);
+            $this->load->view('Plantilla_carro',Array('carro'=> $carro));   
+        }
+    }
+    
     function contra()
     {
         if(!isset($_POST['recu']))
@@ -45,6 +61,7 @@ class Usuarios_ci extends CI_Controller {
                 $datosUsuario = $this->Usuarios_model->getUsuario($ema);
                 $aleatorio = $datosUsuario['aleatorio'];
                 $id = $datosUsuario['idusuario'];
+                //enviamos el enlace
                 $this->Envio_email_model->sendMailRecu($ema,$aleatorio,$id);
                 //notificamos en la vista lo ocurrido
                 $noen = '<div class="alert alert-success">Compruebe su dirección de correo para continuar con el restablecimiento de la contraseña!.</div>';

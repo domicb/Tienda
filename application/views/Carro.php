@@ -3,7 +3,7 @@
 <!-- Page Features -->
 <div class="row text-center">
             <?php if(isset($articulos)) :?>
-    <div class="col-md-3 col-sm-6 hero-feature">
+    <div class="col-md-5 col-sm-6 hero-feature">
 
         <div class="row">
 
@@ -30,7 +30,7 @@
                                     <img width="100" height="150" src="<?= base_url() ?>Assets/img/<?= $articulo['imagen'] ?>"  alt="">
                                 </td>
                                 <td>
-                                    &nbsp;&nbsp;<a href="<?=base_url().'index.php/Compras/eliminar/'.$articulo['idproducto'];?>">
+                                    &nbsp;&nbsp;<a href="<?=base_url().'index.php/Compras/eliminar/'.$articulo['unique_id'];?>">
                                         <span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
                             <?php endforeach; ?> 
@@ -38,8 +38,11 @@
                         </tr>
 
                     </tbody>
-                </table>                         
-                <a href="<?= base_url() . 'index.php/Compras/vaciar/' ?>" class="btn btn-primary">Vaciar carrito </a>
+                </table>
+                <!-- BOTONES CARRITO -->
+                <center> <a href="<?= base_url() . 'index.php/Compras/vaciar/' ?>" class="btn btn-warning">Vaciar carrito </a>
+                <a href="<?=base_url()?>" class="btn btn-primary">Seguir comprando </a></center>
+               
               <?php else :?><center>
                         <div class="alert alert-info">Tu carrito se encuentra vacio, a que esperas para llenarlo con algún ejemplar!</div></center>
             <?php endif;?>

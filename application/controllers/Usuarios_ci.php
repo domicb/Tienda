@@ -18,11 +18,11 @@ class Usuarios_ci extends CI_Controller {
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
     
-    function recuperar($id, $token)
+    function recuperar($id,$ale)
     {
-        if(isset($id) and isset($token))
+        if(isset($id) and isset($ale))
         {
-             $carro = $this->load->view('Cambiar',Array('id' => $id),true);
+             $carro = $this->load->view('Cambiar',Array('id' => $id,'ale' => $ale),true);
              $this->load->view('Plantilla_carro',Array('carro'=> $carro));
         }
         else
@@ -37,7 +37,28 @@ class Usuarios_ci extends CI_Controller {
     {
         if(isset($_POST['nueva']) && isset($_POST['nueva1']))
         {
-              echo '<h1>'. $_POST['id'] .'</h1>';
+              $id=$_POST['id'];
+              $aleatorio=$_POST['ale'];
+              //validación de la pw
+              $this->form_validation->set_rules('nueva', 'Password', 'required|trim|xss_clean|md5');
+              $this->form_validation->set_rules('nueva1', 'Password', 'required|trim|xss_clean|md5');
+              //mensajes de error
+              $this->form_validation->set_message('required', 'El %s es requerido');
+              if ($this->form_validation->run() == FALSE) 
+                  {//si hay errores
+                $carro = $this->load->view('Cambiar','',true);
+                $this->load->view('Plantilla_carro',Array('carro'=> $carro));   
+            } 
+            else { //si han validado aztualizamos los datos
+                $datos = array(
+                    'password' => $this->input->post('nueva')
+                );
+                $this->Usuarios_model->setContra($id,$aleatorio,$datos);
+                $carro = '<div class="alert alert-success">Los datos de su cuenta han sido actualizados!.</div>';
+
+                $this->load->view('Plantilla_carro', Array('carro' => $carro));
+            }
+         //si no han mandado nada mostramos de nuevo     
         }
         else 
         {
@@ -94,12 +115,12 @@ class Usuarios_ci extends CI_Controller {
     function updateUsuario() {
         if (isset($_POST['modificar']) and $_POST['modificar'] == 'si') {
             //SI EXISTE EL CAMPO OCULTO LLAMADO GRABAR CREAMOS LAS VALIDACIONES
-            $this->form_validation->set_rules('nom', 'Nombre', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('correo', 'Email', 'required|is_unique[usuario.email]|valid_email|trim|xss_clean');
-            $this->form_validation->set_rules('nick', 'Usuario', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('pass', 'Password', 'required|trim|xss_clean|md5');
+            $this->form_validation->set_rules('name', 'Nombre', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('email', 'Email', 'required|is_unique[usuario.email]|valid_email|trim|xss_clean');
+            $this->form_validation->set_rules('username', 'Usuario', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('password', 'Password', 'required|trim|xss_clean|md5');
             $this->form_validation->set_rules('ape', 'Apellidos', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('dir', 'Direccion', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('addres', 'Direccion', 'required|trim|xss_clean');
             $this->form_validation->set_rules('cp', 'Codigo Postal', 'required|trim|integer|max_length[5]|min_length[5]|xss_clean');
             $this->form_validation->set_rules('dni', 'DNI', 'required|trim|xss_clean|callback_valid');
             $this->form_validation->set_rules('provincia', 'Provincia', 'required|trim|xss_clean');

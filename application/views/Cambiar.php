@@ -15,12 +15,13 @@
         <div class="col-md-12">
             <div class="col-md-4"></div>
             <div class="col-md-4" id="login"><?php if(isset($noen)){echo $noen;}?>
-                <h3>Introduce la cuenta asociada</h3>
+                <h3>Introduce la nueva contraseña</h3>
                 <form class="form-signin" role="form" action="<?=base_url()?>index.php/Usuarios_ci/cambiar" method="POST">
                     <div class="text-center">
                         <img id="avatar" src="<?=base_url()?>Assets/img/nadie.png" alt="avatar">
                     </div><!-- hay que corregir el método oculto la id parece que no llega si nos fijamso noen si-->
                     <input type="hidden" name="id" class="form-control" value="<?php if(isset($id)){ echo $id;}?>" />
+                    <input type="hidden" name="ale" class="form-control" value="<?php if(isset($ale)){ echo $ale;}?>" />
                     <input id="txtEmail" type="password" name="nueva" class="form-control" placeholder="contraseña">     
                     <input id="txtEmail" type="password" name="nueva1" class="form-control" placeholder="contraseña">   
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Restablecer contraseña</button>

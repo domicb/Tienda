@@ -75,8 +75,8 @@ class Envio_email extends CI_Controller {
                 
                 $carro = '<div class="alert alert-success">Se ha registrado satisfacctoriamente en unos minutos
     le llegará un correo electronico con la informacion de su cuenta a la dirección: ' . $correo . ' grácias por confiar en nosotros!.</div>';
-                //cargo la vista pasando los datos de configuacion
-                $this->load->view('Plantilla_carro', Array('carro' => $carro));
+                $nuevo=''; //cargo la vista pasando los datos de configuacion
+                $this->load->view('Plantilla_carro', Array('carro' => $carro,'nuevo'=>$nuevo));
             }
         }
     }

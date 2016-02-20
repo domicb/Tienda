@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `tienda`.`usuario` (
   `direccion` VARCHAR(150) NULL,
   `cp` NUMERIC(5) NULL,
   `estado` CHAR(1) NULL,
-  `aleatorio` INT NOT NULL,
+  `aleatorio` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idusuario`))
 ENGINE = InnoDB;
 
@@ -118,8 +118,3 @@ INSERT INTO `categoria`(`idcategoria`, `cod_categoria`, `nombre`, `descripcion`,
 
 INSERT INTO `categoria`(`idcategoria`, `cod_categoria`, `nombre`, `descripcion`, `anuncio`) VALUES (
   NULL,'2','Economia','La historia de la economia por los mejores autores','Lográ entender el pasado presente y futuro de la economia mundial a traves de estos grandes bests sellers');
-
-
-INSERT INTO `usuario`(`idusuario`, `provincia`, `username`, `password`, `dni`, `email`, `nombre`, 
-  `apellidos`, `direccion`, `cp`, `estado`,`aleatorio`)
- VALUES (NULL,'Huelva','domi','1234','48930964m','domi1213@hotmail.com','domingo','carrasco','coquina','21100','1','24121987');

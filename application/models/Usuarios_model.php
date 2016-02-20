@@ -71,8 +71,14 @@ class Usuarios_model extends CI_Model {
         return $query->row_array();
     }
 
-    function setUsuario($email, $data) {
+    function setUsuario($email,$data) {
         $this->db->where('email', $email);
+        $this->db->update('usuario', $data);
+    }
+    
+    function setContra($id,$aleatorio,$data) {
+        $this->db->where('idusuario', $id,'aleatorio',$aleatorio);
+        print_r($aleatorio);
         $this->db->update('usuario', $data);
     }
 

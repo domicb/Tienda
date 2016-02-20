@@ -67,12 +67,12 @@
                             <li>  <a href="<?= base_url() . 'index.php/Usuarios_ci/mostrar' ?>"><?= $this->session->userdata('username') ?></a></li>
                         <?php else: ?>
                             <li>  <a href="<?= base_url() . 'index.php/Login/' ?>">Identificate</a></li>                                                                 
-                        <?php endif; ?>                      
+                        <?php endif; ?>  
                         <li>
-                            <a href="<?= base_url() . 'index.php/Compras/micarro/' ?>">Ver carrito!
+                           <a href="<?= base_url() . 'index.php/Compras/micarro/' ?>"> <img src="<?= base_url() ?>Assets/img/carrito.png">
                         </li>
                         <li>
-                            <img src="<?= base_url() ?>Assets/img/carrito.png"></a>
+                            Ver carrito!</a>
                         </li>
                         <?php if ($this->session->userdata('username')== 'serujio@serujio.com'): ?>
                         <li>                            

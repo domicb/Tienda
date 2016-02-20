@@ -2,6 +2,7 @@
 <!-- Title -->
 <div class="row">
     <div class="col-lg-12">
+        <center>
               <a href="<?=base_url()?>"><button type="button" class="btn btn-default"> <span class="glyphicon glyphicon-star">        
                 </span>Destacados</button> </a>
                 <!-- Si existen las categoria las mostramos sino tenemos que lanzar error-->
@@ -11,6 +12,7 @@
         <a href="<?='index.php/'.$categoria['nombre']?>"><button type="button" class="btn btn-default"><?=$categoria['nombre']?></button></a>
        <?php endforeach;?> 
         <?php endif;?>
+        </center>
     </div>
 
 </div>

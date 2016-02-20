@@ -10,7 +10,8 @@ class Envio_email_model extends CI_Model
 	//resultado al controlador para env�ar el correo si todo ha ido bien
 	function new_user($nombre,$correo,$nick,$password,$apellidos,$direccion,$cp,$dni,$provincia)
 	{
-            $ale = rand(8,8);
+            $ale = rand(1,8);
+            $aleatorio = md5($ale);
             $data = array(
                  'idusuario' => null,
                  'provincia' => $provincia,
@@ -23,7 +24,7 @@ class Envio_email_model extends CI_Model
                  'direccion' => $direccion,
                  'cp' => $cp,
                  'estado' => null,
-                 'aleatorio' => $ale
+                 'aleatorio' => $aleatorio
 
              );
              return $this->db->insert('usuario', $data);	
@@ -76,17 +77,16 @@ class Envio_email_model extends CI_Model
             'newline' => "\r\n"
         );
         
-        //generamos el enlace a traves de md5 y la clave aleatoria del usuario
-        $enlace = md5($aleatorio);
+  
         //cargamos la configuración para enviar con gmail
         $this->email->initialize($configGmail);
 
         $this->email->from('llibroweb@gmail.com');
         $this->email->to($ema);
-        $this->email->subject('Bienvenido/a a llibros.com');
+        $this->email->subject('Recuperar contraseña llibros.com');
         $this->email->message('Hemos recibido una peticion de restauración para la contraseña<br>'
                 . 'Si es correcto pulsa sobre el siguiente enlace <br>'.
-                 base_url('index.php/Usuarios_ci/recuperar/'.$id.'/'.$enlace)
+                 base_url('index.php/Usuarios_ci/recuperar/'.$id.'/'.$aleatorio)
                 . '<br>Para cualquier duda no dude en consultarnos '
                 . 'en la dirrecion llibroweb@gmail.com<br>'
                 . '<b>Este correo ha sido generado automáticamente por favor no respenda a este correo.</b>');

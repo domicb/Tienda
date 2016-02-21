@@ -69,5 +69,25 @@ class Tienda_model extends CI_Model {
         $this->db->where('idproducto', $id);
         $this->db->update('producto', $data);
     }
+    
+    function newPedido($datosUsuario,$total)
+    {
+        $fecha = date("j, n, Y");
+        $data = array(
+                 'idpedido' => null,
+                 'usuario_idusuario' => $datosUsuario['idusuario'],
+                 'importe' => $total,
+                 'estado' => 1,
+                 'direccion' => $datosUsuario['direccion'],
+                 'cp' => $datosUsuario['cp'],          
+                 'provincia' => $datosUsuario['provincia'],
+                 'nombre_persona' => $datosUsuario['nombre'],
+                 'apellidos_persona' => $datosUsuario['apellidos'],
+                 'dni' => $datosUsuario['dni'],
+                 'email' => $datosUsuario['email']
+                 
+             );
+             return $this->db->insert('pedido', $data);	
+    }
 
 }

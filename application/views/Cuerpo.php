@@ -18,7 +18,7 @@
 </div>
 <hr>
 <!-- /.row -->
-<h3>Destacados</h3> 
+<center><p class="text-primary">Destacados</p> </center>
 
 <!-- Page Features -->
 <div class="row text-center">

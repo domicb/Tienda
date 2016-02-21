@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `tienda`.`pedido` (
   `fecha` DATE NULL,
   `direccion` VARCHAR(150) NULL,
   `cp` NUMERIC(7) NULL,
-  `cod_provincia` INT NULL,
+  `provincia` VARCHAR(40) NULL,
   `nombre_persona` VARCHAR(150) NULL,
   `apellidos_persona` VARCHAR(150) NULL,
   `dni` VARCHAR(10) NULL,

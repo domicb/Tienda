@@ -6,13 +6,28 @@ class Compras extends CI_Controller {
          //cargo el modelo de artículos
         $this->load->model('Carrito');
         $this->load->model('Tienda_model');
+        $this->load->model('Usuarios_model');
         //cargo el helper de url, con funciones para trabajo con URL del sitio
         $this->load->helper('url');  
     }
     
     function index()
     {
-  
+        if($this->session->userdata('username'))
+        {
+            $email = $this->session->userdata('username');  
+            print_r($email);
+            $datos = $this->Usuarios_model->getUsuario($email);
+            $total = $this->Carrito->precio_total();  
+            //una vez tenemos los datos creamos el pedido para poder enlazarlo con la linea de pedido
+            $this->Tienda_model->newPedido($datos,$total);
+            $datosCarrito = $this->Carrito->get_content();
+        }
+        else
+        {
+            $carro = $this->load->view('Vista_login', '', true);
+            $this->load->view('Plantilla_carro', Array('carro' => $carro));
+        }
     }
     function micarro()
     {

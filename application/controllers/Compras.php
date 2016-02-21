@@ -20,8 +20,11 @@ class Compras extends CI_Controller {
             $datos = $this->Usuarios_model->getUsuario($email);
             $total = $this->Carrito->precio_total();  
             //una vez tenemos los datos creamos el pedido para poder enlazarlo con la linea de pedido
-            $this->Tienda_model->newPedido($datos,$total);
+            //$this->Tienda_model->newPedido($datos,$total);
             $datosCarrito = $this->Carrito->get_content();
+            
+                $carro = $this->load->view('Pedido', Array('articulos' =>$datosCarrito),true);  
+                $this->load->view('Plantilla_carro',Array('carro' => $carro));
         }
         else
         {

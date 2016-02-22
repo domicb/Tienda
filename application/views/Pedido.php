@@ -5,7 +5,7 @@
         <p><h3>Datos de identificacion</h3></p>
             <?php if(isset($usuarios)) :?>
              
-                <table class="table table-hover">                        
+                <table class="table table-bordered">                        
                     <thead> 
                         <tr><!--tabla de USUARIO-->
                      
@@ -45,7 +45,7 @@
         <p><h3>Descripcion del pedido</h3></p>
                     <?php if(isset($articulos)) :?>
              
-                <table class="table table-hover">
+                <table class="table table-bordered">
                     <thead> 
                         <tr><!--tabla de tareas-->                        
                             <td><b>Libro</b></td>  
@@ -66,7 +66,7 @@
                     </tbody>
                 </table>
                 
-    <center> <p class="text-primary">El total del pedido asciende a <?=$total?> Euros.</p></center>
+    <center> <p class="text-primary">El precio total del pedido asciende a <?=$total?> Euros.</p></center>
                
               <?php else :?><center>
                         <div class="alert alert-info">Tu carrito se encuentra vacio, a que esperas para llenarlo con algún ejemplar!</div></center>
@@ -76,5 +76,5 @@
 
 </div>
 <div class="row">
-    <center> <a href="<?=base_url().'index.php/Compras'?>" class="btn btn-primary"></a></center>
+    <center> <a href="<?=base_url().'index.php/Compras'?>" class="btn btn-primary"> Confirmar</a></center>
 </div>

@@ -18,9 +18,18 @@ class Compras extends CI_Controller {
             $email = $this->session->userdata('username');  
             $datos = $this->Usuarios_model->getUsu($email);
             $total = $this->Carrito->precio_total();  
+            //print_r($datos);
             //una vez tenemos los datos creamos el pedido para poder enlazarlo con la linea de pedido
-            //$this->Tienda_model->newPedido($datos,$total);
+            $idPedido = $this->Tienda_model->newPedido($datos,$total);
+            
+            //una vez creamos el pedido relacionamos las lineas con el pedido 
+            //primero recojemos los datos del carrito
             $datosCarrito = $this->Carrito->get_content();
+            //metemos tantas lineas como elementos existan en el carrito
+            foreach ($datosCarrito as $dato)
+            {
+                $this->newLinea($idPedido,$dato['precio'],$dato['cantidad'],$dato['idproducto']);
+            }
             
                 $carro = $this->load->view('Pedido', Array('articulos' =>$datosCarrito,'usuarios'=>$datos,'total'=>$total),true);  
                 $this->load->view('Plantilla_carro',Array('carro' => $carro));
@@ -32,9 +41,9 @@ class Compras extends CI_Controller {
         }
     }
     
-    function setLinea()
+    function newLinea($idpedido,$precio,$cantidad,$idproducto)
     {
-        
+        $this->Tienda_model->setLinea($idpedido,$precio,$cantidad,$idproducto);
     }
     function micarro()
     {

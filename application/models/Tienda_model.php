@@ -75,20 +75,35 @@ class Tienda_model extends CI_Model {
         $fecha = date("Y/m/d");
         $data = array(
                  'idpedido' => null,
-                 'usuario_idusuario' => $datosUsuario['idusuario'],
+                 'usuario_idusuario' => $datosUsuario[0]['idusuario'],
                  'importe' => $total,
                  'estado' => 1,
                  'fecha' => $fecha,
-                 'direccion' => $datosUsuario['direccion'],
-                 'cp' => $datosUsuario['cp'],          
-                 'provincia' => $datosUsuario['provincia'],
-                 'nombre_persona' => $datosUsuario['nombre'],
-                 'apellidos_persona' => $datosUsuario['apellidos'],
-                 'dni' => $datosUsuario['dni'],
-                 'email' => $datosUsuario['email']
+                 'direccion' => $datosUsuario[0]['direccion'],
+                 'cp' => $datosUsuario[0]['cp'],          
+                 'provincia' => $datosUsuario[0]['provincia'],
+                 'nombre_persona' => $datosUsuario[0]['nombre'],
+                 'apellidos_persona' => $datosUsuario[0]['apellidos'],
+                 'dni' => $datosUsuario[0]['dni'],
+                 'email' => $datosUsuario[0]['email']
                  
              );
-             return $this->db->insert('pedido', $data);	
+         $this->db->insert('pedido', $data);	
+        return $this->db->insert_id();	
+    }   
+        
+    function setLinea($idPedido,$precio,$cantidad,$idproducto)
+    {
+        $data = array(
+                 'idlinea' => null,
+                 'pedido_idpedido' => $idPedido,
+                 'iva' => null,
+                 'precio' => $precio,      
+                 'cantidad' => $cantidad,
+                 'producto_idproducto' => $idproducto
+                 
+             );
+        return $this->db->insert('linea', $data);	
     }
 
 }

@@ -72,12 +72,13 @@ class Tienda_model extends CI_Model {
     
     function newPedido($datosUsuario,$total)
     {
-        $fecha = date("j, n, Y");
+        $fecha = date("Y/m/d");
         $data = array(
                  'idpedido' => null,
                  'usuario_idusuario' => $datosUsuario['idusuario'],
                  'importe' => $total,
                  'estado' => 1,
+                 'fecha' => $fecha,
                  'direccion' => $datosUsuario['direccion'],
                  'cp' => $datosUsuario['cp'],          
                  'provincia' => $datosUsuario['provincia'],

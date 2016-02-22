@@ -70,6 +70,12 @@ class Usuarios_model extends CI_Model {
         $query = $this->db->get('usuario');
         return $query->row_array();
     }
+    function getUsu($email) {
+        $query = $this->db->select('*');
+        $query = $this->db->where('email', $email);
+        $query = $this->db->get('usuario');
+        return $query->result_array();
+    }
 
     function setUsuario($email,$data) {
         $this->db->where('email', $email);

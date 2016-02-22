@@ -16,14 +16,13 @@ class Compras extends CI_Controller {
         if($this->session->userdata('username'))
         {
             $email = $this->session->userdata('username');  
-            print_r($email);
-            $datos = $this->Usuarios_model->getUsuario($email);
+            $datos = $this->Usuarios_model->getUsu($email);
             $total = $this->Carrito->precio_total();  
             //una vez tenemos los datos creamos el pedido para poder enlazarlo con la linea de pedido
             //$this->Tienda_model->newPedido($datos,$total);
             $datosCarrito = $this->Carrito->get_content();
             
-                $carro = $this->load->view('Pedido', Array('articulos' =>$datosCarrito),true);  
+                $carro = $this->load->view('Pedido', Array('articulos' =>$datosCarrito,'usuarios'=>$datos,'total'=>$total),true);  
                 $this->load->view('Plantilla_carro',Array('carro' => $carro));
         }
         else
@@ -31,6 +30,11 @@ class Compras extends CI_Controller {
             $carro = $this->load->view('Vista_login', '', true);
             $this->load->view('Plantilla_carro', Array('carro' => $carro));
         }
+    }
+    
+    function setLinea()
+    {
+        
     }
     function micarro()
     {

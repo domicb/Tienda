@@ -64,6 +64,24 @@ class Tienda_model extends CI_Model {
         return $query->row_array();
     }
     
+    function getPedido($id)
+    {
+        $this->db->select('*');
+        $this->db->from('pedido');
+        $this->db->where('usuario_idusuario', $id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    
+    function getLinea($id)
+    {
+        $this->db->select('*');
+        $this->db->from('linea');
+        $this->db->where('pedido_idpedido', $id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    
     function setLibro($id,$data)
     {
         $this->db->where('idproducto', $id);

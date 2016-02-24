@@ -56,8 +56,7 @@
                             <a href="#">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                </a>
                         </li>
                         <?php if ($this->session->userdata('username')): ?>
                             <li>
@@ -74,6 +73,15 @@
                         <li>
                             Ver carrito!</a>
                         </li>
+                        <?php if ($this->session->userdata('username')): ?>
+                        <li>
+                            <a href="<?= base_url() . 'index.php/Compras/pedidos/' ?>"> <img src="<?= base_url() ?>Assets/img/pedido.png">
+                        </li>
+                        <li>
+                            Ver Pedidos</a>
+                        </li>
+                        <?php endif;?>
+                        
                         <?php if ($this->session->userdata('username')== 'serujio@serujio.com'): ?>
                         <li>                            
                             <a href="<?= base_url() . 'index.php/scaffolding/' ?>">Panel de control

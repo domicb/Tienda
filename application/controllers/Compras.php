@@ -31,8 +31,8 @@ class Compras extends CI_Controller {
                 $this->newLinea($idPedido,$dato['precio'],$dato['cantidad'],$dato['idproducto']);
             }
             
-                $carro = $this->load->view('Pedido', Array('articulos' =>$datosCarrito,'usuarios'=>$datos,'total'=>$total),true);  
-                $this->load->view('Plantilla_carro',Array('carro' => $carro));
+            $carro = $this->load->view('Pedido', Array('articulos' => $datosCarrito,'usuarios'=>$datos,'total'=>$total),true);  
+            $this->load->view('Plantilla_carro',Array('carro' => $carro));
         }
         else
         {
@@ -85,6 +85,22 @@ class Compras extends CI_Controller {
         $carro = $this->load->view('Carro','',true);  
         $this->load->view('Plantilla_carro',Array('carro' => $carro));
     }
+    function borraCarrito()
+    {
+        $this->Carrito->destroy();
+    }
+    
+    function pedidos()
+    {
+        $email = $this->session->userdata('username'); 
+        $datos = $this->Usuarios_model->getUsu($email);
+        //una vez tengo los datos del usuario logeado selecciono su id
+        $idUsu=$datos[0]['idusuario'];
+        //una vez tengo el id recojo los pedidos del usuario
+        $pedidos = $this->Tienda_model->getPedido($idUsu);
+        $carro = $this->load->view('Pedidos', Array('articulos' =>$pedidos),true);  
+        $this->load->view('Plantilla_carro',Array('carro' => $carro));
+    }
     
     function eliminar($pro)
     {
@@ -92,6 +108,14 @@ class Compras extends CI_Controller {
         $res = $this->Carrito->get_content(); 
         $carro = $this->load->view('Carro', Array('articulos' =>$res),true);  
         $this->load->view('Plantilla_carro',Array('carro' => $carro));
+    }
+    
+    function finalCompra()
+    {
+        //como hemos creado el pedido borramos el carrito
+        $this->borraCarrito();
+        //debemos mostrar la vista diciendo que se le ha enviado el correo con los datos de su pedido
+        
     }
     
 }

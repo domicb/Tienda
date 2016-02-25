@@ -117,12 +117,36 @@ class Compras extends CI_Controller {
         $this->load->view('Plantilla_carro',Array('carro' => $carro));
     }
     
+    function pdf()
+    {
+        $pdf = new FPDF();
+         $pdf->AddPage();
+          $pdf->SetFont('Arial','B',16);
+        //cabecera
+            $pdf->Image(base_url().'Assets/img/logo.png',10,8,100);
+            /*$this->Cell(30);
+            $this->Cell(120,10,'ESCUELA X',0,0,'C');
+            $this->Ln('5');
+            $this->SetFont('Arial','B',8);
+            $this->Cell(30);
+            $this->Cell(120,10,'INFORMACION DE CONTACTO',0,0,'C');
+            $this->Ln(20);*/
+        //cuerpo
+       
+       
+        $pdf->Cell(40,80,'¡Hola, Mundo!');
+        //pie
+         $pdf->SetY(-15);
+         $pdf->Cell(0,10,'Page '.$pdf->PageNo().'/{nb}',0,0,'C');
+        $pdf->Output();
+    }
+    
     function finalCompra()
     {
         //mandamos el correo con los datos del pedido
         $res = $this->Carrito->get_content();//para ello recogemos los datos del carrito actual
         $correo = $this->session->userdata('username'); 
-        $this->Envio_email_model->sendMailPedido($correo,$res);
+        //$this->Envio_email_model->sendMailPedido($correo,$res);
         
         //como hemos creado el pedido borramos el carrito
         $this->borraCarrito();

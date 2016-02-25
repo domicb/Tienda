@@ -87,6 +87,14 @@ class Tienda_model extends CI_Model {
         $this->db->where('idproducto', $id);
         $this->db->update('producto', $data);
     }
+     function bajaPedido($id) {
+         //primero borramos las lineas de pedido relacionadas
+        $this->db->where('pedido_idpedido', $id);
+        $this->db->delete('linea');
+        //una vez nos hemos cargado las lineas relacionadas borramos los pedidos
+        $this->db->where('idpedido', $id);
+        $this->db->delete('pedido');
+    }
     
     function newPedido($datosUsuario,$total)
     {

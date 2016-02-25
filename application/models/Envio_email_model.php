@@ -29,6 +29,37 @@ class Envio_email_model extends CI_Model
              );
              return $this->db->insert('usuario', $data);	
     }
+    function sendMailPedido($email,$pedido)
+    {
+         //cargamos la libreria email de ci
+        $this->load->library("email");
+        //configuracion para gmail
+        $configGmail = array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.gmail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'llibroweb@gmail.com',
+            'smtp_pass' => 'loleilo8',
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'newline' => "\r\n"
+        );
+        
+        //cargamos la configuración para enviar con gmail
+        $this->email->initialize($configGmail);
+
+        $this->email->from('llibroweb@gmail.com');
+        $this->email->to($email);
+        $this->email->subject('Datos del pedido realizado');
+        $this->email->message('<img src="'.base_url().'Assets/img/pedido.png"</img><br><br><h3>Se ha registrado satisfactoriamente</h3><hr><br> '
+                . 'Su correo de acceso es '.$email.'<br>Para cualquier duda no dude en consultarnos'
+                . 'en la dirrecion llibroweb@gmail.com<br>'
+                . 'Visitanos en http://iessansebastian.com/alumnos/2daw1516/domingo/Tienda/ <br>'
+                . '<b>Este correo ha sido generado automáticamente por favor no respenda a este correo.</b>');
+        $this->email->send();
+        //con esto podemos ver el resultado
+       // var_dump($this->email->print_debugger());
+    }
     
     public function sendMailGmail($email,$nombre) {
         //cargamos la libreria email de ci

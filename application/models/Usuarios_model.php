@@ -84,7 +84,6 @@ class Usuarios_model extends CI_Model {
     
     function setContra($id,$aleatorio,$data) {
         $this->db->where('idusuario', $id,'aleatorio',$aleatorio);
-        print_r($aleatorio);
         $this->db->update('usuario', $data);
     }
 

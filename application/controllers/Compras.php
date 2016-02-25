@@ -7,6 +7,7 @@ class Compras extends CI_Controller {
         $this->load->model('Carrito');
         $this->load->model('Tienda_model');
         $this->load->model('Usuarios_model');
+        $this->load->model('Envio_email_model');
         //cargo el helper de url, con funciones para trabajo con URL del sitio
         $this->load->helper('url');  
     }
@@ -52,6 +53,12 @@ class Compras extends CI_Controller {
         $carro = $this->load->view('Carro', Array('articulos' =>$res),true);  
         $this->load->view('Plantilla_carro',Array('carro' => $carro));
     }
+    
+    function borraPedido($id)
+    {
+        $this->Tienda_model->bajaPedido($id);
+        $this->pedidos();
+    }
 
 
     function compra($id)
@@ -62,7 +69,7 @@ class Compras extends CI_Controller {
             //restamos en 1 el stock del articulo
            
             //$this->Tienda_model->setLibro($articulo['id'],$datos);
-            echo "<pre>"; print_r($articulo); echo "</pre>";
+           // echo "<pre>"; print_r($articulo); echo "</pre>";
             $articulo['id']=$id;
             $articulo['cantidad']=1;
 
@@ -112,10 +119,15 @@ class Compras extends CI_Controller {
     
     function finalCompra()
     {
+        //mandamos el correo con los datos del pedido
+        $res = $this->Carrito->get_content();//para ello recogemos los datos del carrito actual
+        $correo = $this->session->userdata('username'); 
+        $this->Envio_email_model->sendMailPedido($correo,$res);
+        
         //como hemos creado el pedido borramos el carrito
         $this->borraCarrito();
-        //debemos mostrar la vista diciendo que se le ha enviado el correo con los datos de su pedido
-        
+        //mostramos de nuevo la lista de pedidos
+        $this->pedidos();       
     }
     
 }

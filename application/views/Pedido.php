@@ -78,6 +78,6 @@
 <div class="row">
     <center> 
         <a href="<?=base_url()?>" class="btn btn-primary"> Cancelar</a>
-        <a href="<?=base_url().'index.php/Compras/finalCompra'?>" class="btn btn-primary"> Confirmar</a>
+        <a href="<?=base_url().'index.php/Compras/finalCompra/'.$id?>" class="btn btn-primary"> Confirmar</a>
     </center>
 </div>

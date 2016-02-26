@@ -50,10 +50,8 @@ class Envio_email_model extends CI_Model
 
         $this->email->from('llibroweb@gmail.com');
         $this->email->to($email);
-        $this->email->subject('Datos del pedido realizado');
-        $this->email->message('<h3>Resumen de su pedido</h3><hr><br> '
-                . '<table><tr><td>Número de pedido</td></tr>'
-                . '<tr> <td>'.$pedido['idpedido'].'</td></tr></table>'
+        $this->email->subject('Datos del pedido realizado. Lé llibrosweb');
+        $this->email->message('<h3>Confirmación del pedido número: '.$pedido.'</h3><hr><br> '            
                 . 'Visitanos en http://iessansebastian.com/alumnos/2daw1516/domingo/Tienda/ <br>'
                 . '<b>Este correo ha sido generado automáticamente por favor no respenda a este correo.</b>');
         $this->email->send();

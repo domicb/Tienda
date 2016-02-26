@@ -32,7 +32,7 @@ class Compras extends CI_Controller {
                 $this->newLinea($idPedido,$dato['precio'],$dato['cantidad'],$dato['idproducto']);
             }
             
-            $carro = $this->load->view('Pedido', Array('articulos' => $datosCarrito,'usuarios'=>$datos,'total'=>$total),true);  
+            $carro = $this->load->view('Pedido', Array('articulos' => $datosCarrito,'usuarios'=>$datos,'total'=>$total,'id'=>$idPedido),true);  
             $this->load->view('Plantilla_carro',Array('carro' => $carro));
         }
         else
@@ -119,35 +119,46 @@ class Compras extends CI_Controller {
     
     function pdf()
     {
+        $email = $this->session->userdata('username');  
+        $datos = $this->Usuarios_model->getUsuario($email);
         $pdf = new FPDF();
-         $pdf->AddPage();
-          $pdf->SetFont('Arial','B',16);
+        $pdf->AddPage();
+        $pdf->SetFont('Arial','B',20);
         //cabecera
             $pdf->Image(base_url().'Assets/img/logo.png',10,8,100);
-            /*$this->Cell(30);
-            $this->Cell(120,10,'ESCUELA X',0,0,'C');
-            $this->Ln('5');
-            $this->SetFont('Arial','B',8);
-            $this->Cell(30);
-            $this->Cell(120,10,'INFORMACION DE CONTACTO',0,0,'C');
-            $this->Ln(20);*/
-        //cuerpo
-       
-       
-        $pdf->Cell(40,80,'¡Hola, Mundo!');
+        $pdf->Cell(60);
+        $pdf->Cell(80,100,'FACTURA');      
+        $pdf->Ln(15);
+        $pdf->Cell(100,100,'Datos cliente');
+        $pdf->Cell(40,100,'Datos librosweb');
+        $pdf->Ln(8);
+        $pdf->SetFont('Arial','B',12);      
+        $pdf->Cell(100,100,'Cliente: '.$datos['username'].' '.$datos['apellidos']);
+        $pdf->Cell(40,100,'Librosweb');
+        $pdf->Ln(5);
+        $pdf->Cell(100,100,utf8_decode('Dirección: '.$datos['direccion']));
+        $pdf->Cell(40,100,'Avda Europa, Parcela 2-5 y 2-6');
+        $pdf->Ln(5);
+        $pdf->Cell(100,100,utf8_decode('Población: '.$datos['provincia'].' '.$datos['cp']));
+        $pdf->Cell(40,100,'Murcia');
+        $pdf->Ln(5);
+        $pdf->Cell(100,100,utf8_decode('NIF/CIF: '.$datos['dni']));
+        $pdf->Cell(40,100,'CIF: B-73347494'); 
+
+
+        
         //pie
          $pdf->SetY(-15);
          $pdf->Cell(0,10,'Page '.$pdf->PageNo().'/{nb}',0,0,'C');
         $pdf->Output();
     }
     
-    function finalCompra()
+    function finalCompra($idPedido)
     {
         //mandamos el correo con los datos del pedido
         $res = $this->Carrito->get_content();//para ello recogemos los datos del carrito actual
         $correo = $this->session->userdata('username'); 
-        //$this->Envio_email_model->sendMailPedido($correo,$res);
-        
+        $this->Envio_email_model->sendMailPedido($correo,$idPedido);
         //como hemos creado el pedido borramos el carrito
         $this->borraCarrito();
         //mostramos de nuevo la lista de pedidos

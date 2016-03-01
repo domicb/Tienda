@@ -133,7 +133,7 @@ class Compras extends CI_Controller {
         //cabecera
         $pdf->Image(base_url().'Assets/img/logo.png',10,8,100);
         $pdf->Cell(60);
-        $pdf->Cell(80,100,'FACTURA');      
+        $pdf->Cell(80,100,'PEDIDO');      
         $pdf->Ln(15);
         $pdf->Cell(100,100,'Datos cliente');
         $pdf->Cell(40,100,'Datos librosweb');
@@ -194,7 +194,7 @@ class Compras extends CI_Controller {
         //cabecera
         $pdf->Image(base_url().'Assets/img/logo.png',10,8,100);
         $pdf->Cell(60);
-        $pdf->Cell(80,100,'FACTURA');      
+        $pdf->Cell(80,100,'PEDIDO');      
         $pdf->Ln(15);
         $pdf->Cell(100,100,'Datos cliente');
         $pdf->Cell(40,100,'Datos librosweb');

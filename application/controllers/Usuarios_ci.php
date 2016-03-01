@@ -116,7 +116,7 @@ class Usuarios_ci extends CI_Controller {
         if (isset($_POST['modificar']) and $_POST['modificar'] == 'si') {
             //SI EXISTE EL CAMPO OCULTO LLAMADO GRABAR CREAMOS LAS VALIDACIONES
             $this->form_validation->set_rules('name', 'Nombre', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('email', 'Email', 'required|is_unique[usuario.email]|valid_email|trim|xss_clean');
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim|xss_clean');
             $this->form_validation->set_rules('username', 'Usuario', 'required|trim|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'required|trim|xss_clean|md5');
             $this->form_validation->set_rules('ape', 'Apellidos', 'required|trim|xss_clean');

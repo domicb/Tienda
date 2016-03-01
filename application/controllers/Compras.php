@@ -1,4 +1,6 @@
 <?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
 class Compras extends CI_Controller {
          
     function __construct() {
@@ -10,6 +12,7 @@ class Compras extends CI_Controller {
         $this->load->model('Envio_email_model');
         //cargo el helper de url, con funciones para trabajo con URL del sitio
         $this->load->helper('url');  
+        $this->load->library('fpdf');
     }
     
     function index()
@@ -117,15 +120,18 @@ class Compras extends CI_Controller {
         $this->load->view('Plantilla_carro',Array('carro' => $carro));
     }
     
-    function pdf()
+    function verPdf($idPedido)
     {
+        $datosPedido = $this->Tienda_model->datosPedido($idPedido);
         $email = $this->session->userdata('username');  
         $datos = $this->Usuarios_model->getUsuario($email);
+        $lineas = $this->Tienda_model->getLinea($idPedido);
+        //nos falta el nombre del libro para ello deberemos consultar su nombre por cada uno
         $pdf = new FPDF();
         $pdf->AddPage();
         $pdf->SetFont('Arial','B',20);
         //cabecera
-            $pdf->Image(base_url().'Assets/img/logo.png',10,8,100);
+        $pdf->Image(base_url().'Assets/img/logo.png',10,8,100);
         $pdf->Cell(60);
         $pdf->Cell(80,100,'FACTURA');      
         $pdf->Ln(15);
@@ -144,25 +150,109 @@ class Compras extends CI_Controller {
         $pdf->Ln(5);
         $pdf->Cell(100,100,utf8_decode('NIF/CIF: '.$datos['dni']));
         $pdf->Cell(40,100,'CIF: B-73347494'); 
+        $pdf->Ln(65);
+        //Datos
+        $header = array('LIBRO', 'PRECIO', 'IVA', 'CANTIDAD', 'TOTAL');
+         $w = array(83, 25, 22, 35, 25);
+        for ($i = 0; $i < count($header); $i++)
+            $pdf->Cell($w[$i], 7, utf8_decode($header[$i]), 1, 0, true);
+        $pdf->Ln();
 
-
-        
+        $pdf->SetFont('Arial','B',10); 
+        // Datos
+        foreach ($lineas as $linea) {      
+            $titulo = $this->Tienda_model->datos_libro($linea['producto_idproducto']);
+            $cantidad = $linea['cantidad'] * $linea['precio'];
+            $pdf->Cell(83,40, utf8_decode($titulo['nombre']),1);
+            $pdf->Cell(25,40, utf8_decode($linea['precio']) ." " .iconv('UTF-8', 'windows-1252', '€'),1);
+            $pdf->Cell(22,40, utf8_decode('21%'),1);
+            $pdf->Cell(35,40, utf8_decode($linea['cantidad']),1);
+            $pdf->Cell(25,40, utf8_decode($cantidad)." " .iconv('UTF-8', 'windows-1252', '€'),1);
+            $pdf->Ln();
+            if ($pdf->GetY() > 264) {
+                $pdf->AddPage();
+            }
+        }  
+         $pdf->SetFont('Arial','B',12); 
+        $pdf->Cell(40,40,'El importe total del pedido es de: '.$datosPedido['importe']." " .iconv('UTF-8', 'windows-1252', '€'));    
         //pie
          $pdf->SetY(-15);
          $pdf->Cell(0,10,'Page '.$pdf->PageNo().'/{nb}',0,0,'C');
         $pdf->Output();
     }
+    function pdf($idPedido)
+    {
+        $metodo = 'F';
+                $datosPedido = $this->Tienda_model->datosPedido($idPedido);
+        $email = $this->session->userdata('username');  
+        $datos = $this->Usuarios_model->getUsuario($email);
+        $lineas = $this->Tienda_model->getLinea($idPedido);
+        //nos falta el nombre del libro para ello deberemos consultar su nombre por cada uno
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial','B',20);
+        //cabecera
+        $pdf->Image(base_url().'Assets/img/logo.png',10,8,100);
+        $pdf->Cell(60);
+        $pdf->Cell(80,100,'FACTURA');      
+        $pdf->Ln(15);
+        $pdf->Cell(100,100,'Datos cliente');
+        $pdf->Cell(40,100,'Datos librosweb');
+        $pdf->Ln(8);
+        $pdf->SetFont('Arial','B',12);      
+        $pdf->Cell(100,100,'Cliente: '.$datos['username'].' '.$datos['apellidos']);
+        $pdf->Cell(40,100,'Librosweb');
+        $pdf->Ln(5);
+        $pdf->Cell(100,100,utf8_decode('Dirección: '.$datos['direccion']));
+        $pdf->Cell(40,100,'Avda Europa, Parcela 2-5 y 2-6');
+        $pdf->Ln(5);
+        $pdf->Cell(100,100,utf8_decode('Población: '.$datos['provincia'].' '.$datos['cp']));
+        $pdf->Cell(40,100,'Murcia');
+        $pdf->Ln(5);
+        $pdf->Cell(100,100,utf8_decode('NIF/CIF: '.$datos['dni']));
+        $pdf->Cell(40,100,'CIF: B-73347494'); 
+        $pdf->Ln(65);
+        //Datos
+        $header = array('LIBRO', 'PRECIO', 'IVA', 'CANTIDAD', 'TOTAL');
+         $w = array(83, 25, 22, 35, 25);
+        for ($i = 0; $i < count($header); $i++)
+            $pdf->Cell($w[$i], 7, utf8_decode($header[$i]), 1, 0, true);
+        $pdf->Ln();
+
+        $pdf->SetFont('Arial','B',10); 
+        // Datos
+        foreach ($lineas as $linea) {      
+            $titulo = $this->Tienda_model->datos_libro($linea['producto_idproducto']);
+            $cantidad = $linea['cantidad'] * $linea['precio'];
+            $pdf->Cell(83,40, utf8_decode($titulo['nombre']),1);
+            $pdf->Cell(25,40, utf8_decode($linea['precio']) ." " .iconv('UTF-8', 'windows-1252', '€'),1);
+            $pdf->Cell(22,40, utf8_decode('21%'),1);
+            $pdf->Cell(35,40, utf8_decode($linea['cantidad']),1);
+            $pdf->Cell(25,40, utf8_decode($cantidad)." " .iconv('UTF-8', 'windows-1252', '€'),1);
+            $pdf->Ln();
+            if ($pdf->GetY() > 264) {
+                $pdf->AddPage();
+            }
+        }  
+         $pdf->SetFont('Arial','B',12); 
+        $pdf->Cell(40,40,'El importe total del pedido es de: '.$datosPedido['importe']." " .iconv('UTF-8', 'windows-1252', '€'));    
+        //pie
+         $pdf->SetY(-15);
+         $pdf->Cell(0,10,'Page '.$pdf->PageNo().'/{nb}',0,0,'C');
+        $pdf->Output($metodo,'Assets/img/'.$idPedido.'pedido.pdf', true);
+    }
     
     function finalCompra($idPedido)
     {
-        //mandamos el correo con los datos del pedido
-        $res = $this->Carrito->get_content();//para ello recogemos los datos del carrito actual
+        $datosPedido = $this->Tienda_model->datosPedido($idPedido);
+        $this->pdf($idPedido);
         $correo = $this->session->userdata('username'); 
-        $this->Envio_email_model->sendMailPedido($correo,$idPedido);
+        $datosUsu = $this->Usuarios_model->getUsuario($correo);
+        $this->Envio_email_model->sendMailPedido($correo,$datosUsu,$datosPedido);
         //como hemos creado el pedido borramos el carrito
         $this->borraCarrito();
         //mostramos de nuevo la lista de pedidos
-        $this->pedidos();       
+        $this->pedidos();
     }
     
 }

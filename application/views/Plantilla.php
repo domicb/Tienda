@@ -10,6 +10,7 @@
         <meta name="author" content="">
 
         <title>Tienda</title>
+        <link rel="icon" type="image/png" href="<?= base_url() ?>Assets/css/img/libro.png"/>
 
         <!-- Bootstrap Core CSS -->
         <link href="<?= base_url() ?>Assets/css/bootstrap.min.css" rel="stylesheet">

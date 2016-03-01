@@ -29,7 +29,7 @@ class Envio_email_model extends CI_Model
              );
              return $this->db->insert('usuario', $data);	
     }
-    function sendMailPedido($email,$pedido)
+    function sendMailPedido($email,$usuario,$pedido)
     {
          //cargamos la libreria email de ci
         $this->load->library("email");
@@ -44,15 +44,25 @@ class Envio_email_model extends CI_Model
             'charset' => 'utf-8',
             'newline' => "\r\n"
         );
-        
+        //transformamos el id en algo visible
+        if($pedido['estado']==1){$estado = 'Pendiente';}else{$estado='anulado';}
         //cargamos la configuración para enviar con gmail
         $this->email->initialize($configGmail);
 
         $this->email->from('llibroweb@gmail.com');
         $this->email->to($email);
         $this->email->subject('Datos del pedido realizado. Lé llibrosweb');
-        $this->email->message('<h3>Confirmación del pedido número: '.$pedido.'</h3><hr><br> '            
-                . 'Visitanos en http://iessansebastian.com/alumnos/2daw1516/domingo/Tienda/ <br>'
+        $this->email->attach('Assets/img/'.$pedido['idpedido'].'pedido.pdf');
+        $this->email->message('<h3>Confirmación del pedido número: '.$pedido['idpedido'].'</h3><hr><br> '
+                . 'Hola '.$usuario['username'].' '.$usuario['apellidos'].'<br>'
+                . '¡Muchas gracias por realizar tu pedido en Lé llibrosweb!<br>'
+                . 'A continuación te mostramos todos los datos de tu compra. <br>'
+                . '<table border="1"><tr><th>Email asociado</th><th>Estado</th><th>Fecha</th></tr>'   
+                . '<tr><td>'.$pedido['email'].'</td><td>'.$estado.'</td><td>'.$pedido['fecha'].'</td>'
+                . '</tr><tr><th colspan="3">El importe total del pedido es de: '.$pedido['importe']. '</th></tr></table><br>'
+                . 'Para ver los detalles del pedido puede consultar el pdf adjuntado a este correo<br>'
+                . 'También puede consultar los pedidos en nuestra web.<br>'
+                . 'http://iessansebastian.com/alumnos/2daw1516/domingo/Tienda/ <br><hr>'
                 . '<b>Este correo ha sido generado automáticamente por favor no respenda a este correo.</b>');
         $this->email->send();
         //con esto podemos ver el resultado
@@ -83,7 +93,7 @@ class Envio_email_model extends CI_Model
         $this->email->message('<h1>Bienvenido a la tienda '.$nombre.'</h1><br><br><h3>Se ha registrado satisfactoriamente</h3><hr><br> '
                 . 'Su correo de acceso es '.$email.'<br>Para cualquier duda no dude en consultarnos'
                 . 'en la dirrecion llibroweb@gmail.com<br>'
-                . 'Visitanos en http://iessansebastian.com/alumnos/2daw1516/domingo/Tienda/ <br>'
+                . 'Visitanos en '.base_url().'<br>'
                 . '<b>Este correo ha sido generado automáticamente por favor no respenda a este correo.</b>');
         $this->email->send();
         //con esto podemos ver el resultado

@@ -19,12 +19,13 @@
                         <tr>
                             <?php foreach ($articulos as $articulo): ?>     
                             <tr>
-                                <td> <?php echo '120'.$articulo['idpedido']; ?> </td>
+                                <td> <?php echo $articulo['idpedido']; ?> </td>
                                 <td> <?php echo $articulo['fecha']; ?> </td>                             
                                 <td> <?php if($articulo['estado']=='1'){echo 'Pendiente';}else{echo 'En Tramite';}  ?></td>     
                                 <td> <?php echo $articulo['importe']; ?></td> 
                                 <?php if($articulo['estado']=='1'):?><!-- SOlo podremos borrar el pedido sinó se ha enviado -->
-                                <td><a href="<?=base_url().'index.php/Compras/borraPedido/'.$articulo['idpedido']?>">Anular</a> | <a href="#"> Ver en PDF</a></td>
+                                <td><a href="<?=base_url().'index.php/Compras/borraPedido/'.$articulo['idpedido']?>">Anular</a> | 
+                                    <a href="<?=base_url().'index.php/Compras/verPdf/'.$articulo['idpedido']?>"> Ver en PDF</a></td>
                                 <?php else :?>
                                  <td><a href="#">Anular</a> | <a href="#"> Ver en PDF</a></td>
                                 <?php endif;?>

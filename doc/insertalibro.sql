@@ -112,7 +112,7 @@ Narra las peripecias de dos españoles enviados a Francia por la Real Academia E
   '2016/01/03',
   '2016/09/03'),
  (NULL,
-  '2',
+  '1',
   'Ser y Tiempo',
   '18',
   '11.40',
@@ -168,8 +168,64 @@ Narra las peripecias de dos españoles enviados a Francia por la Real Academia E
     '1',
     '1',
     '2016/01/18',
+    '2016/08/23'),
+    (NULL,
+    '2',
+    'El contrato social',
+    '16',
+    '15.40',
+    '11',
+    'c2/rouseau.jpg',
+    '21',
+    ' El contrato social, es un libro escrito por Jean-Jacques Rousseau y publicado en 1762. Es una obra sobre filosofía política y 
+    trata principalmente sobre la libertad e igualdad de los hombres bajo un Estado instituido por medio de un contrato social.',
+    'Se dice que este libro fue uno de los muchos incitadores de la Revolución francesa por sus ideas políticas. Bajo la teoría del 
+    contrato social se fundamenta buena parte de la filosofía liberal, en especial el liberalismo clásico por su visión filosófica del 
+    individuo como fundamental, que luego decide vivir en sociedad por lo que necesita del Estado de Derecho que asegure las libertades
+    para poder convivir. Así también se dice que en este libro se exponen lo que en el futuro serían los principios de la filosofía 
+    política socialista, en parte por el concepto de la voluntad general.',
+    '1',
+    '1',
+    '2016/01/18',
+    '2016/08/23'),
+    (NULL,
+'2',
+'Hombres Buenos',
+'12',
+'18.90',
+'9',
+'c1/hombres_buenos.jpg',
+'21',
+'Novela del escritor español Arturo Pérez-Reverte publicada en el año 2015 por editorial Alfaguara. 
+Narra las peripecias de dos españoles enviados a Francia por la Real Academia Española de la Lengua a finales del siglo XVIII.',
+'Durante el viaje a París para conseguir L''Encyclopédie, los 2 protagonistas principales, el bibliotecario
+ Hermógenes Molina y el almirante don Pedro Zárate, han de enfrentarse a diferentes problemas, sufren el 
+ asalto de bandidos y deben visitar oscuras librerías donde se venden todo tipo de libros prohibidos, desde 
+ las obras de Voltaire y Rousseau, hasta publicaciones pornográficas.',
+ '1',
+ '1',
+ '2016/01/27',
+ '2016/05/07'),
+ (NULL,
+    '2',
+    'El contrato social',
+    '16',
+    '15.40',
+    '11',
+    'c2/rouseau.jpg',
+    '21',
+    ' El contrato social, es un libro escrito por Jean-Jacques Rousseau y publicado en 1762. Es una obra sobre filosofía política y 
+    trata principalmente sobre la libertad e igualdad de los hombres bajo un Estado instituido por medio de un contrato social.',
+    'Se dice que este libro fue uno de los muchos incitadores de la Revolución francesa por sus ideas políticas. Bajo la teoría del 
+    contrato social se fundamenta buena parte de la filosofía liberal, en especial el liberalismo clásico por su visión filosófica del 
+    individuo como fundamental, que luego decide vivir en sociedad por lo que necesita del Estado de Derecho que asegure las libertades
+    para poder convivir. Así también se dice que en este libro se exponen lo que en el futuro serían los principios de la filosofía 
+    política socialista, en parte por el concepto de la voluntad general.',
+    '1',
+    '1',
+    '2016/01/18',
     '2016/08/23'
-    );
+      );
 
 
 

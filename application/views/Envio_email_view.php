@@ -2,7 +2,8 @@
 <center>
     <fieldset>
         <legend>Formulario de registro</legend>
-        <?php echo form_open(base_url() . "index.php/Envio_email/nuevo_usuario") ?>
+        <?php echo form_open(base_url() . "index.php/Envio_email/nuevo_usuario") ?>    
+            <span id="span"></span>
         <table>
             <tr>
                 <td>
@@ -130,7 +131,6 @@
                     </select>
                 </td>
             </tr>
-
                 <td>
                     <font color="red" style="font-weight: bold; font-size: 14px; text-decoration: underline"><?php echo validation_errors(); ?></font>
                 </td>

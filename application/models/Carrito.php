@@ -18,7 +18,12 @@ class Carrito {
         $this->carrito = $_SESSION['carrito'];
     }
 
-    //añadimos un producto al carrito
+    /**
+     * Recoge los datos del articulo a añadir a traves del array articulo lo filtra para 
+     * evitar que metan campos no deseados y los añade a traves de funciones que describimos acontinuacón
+     * @param type $articulo
+     * @throws Exception
+     */
     public function add($articulo = array()) {
         //primero comprobamos el articulo a añadir, si está vacío o no es un 
         //array lanzamos una excepción y cortamos la ejecución
@@ -77,8 +82,9 @@ class Carrito {
         $this->update_precio_cantidad();
     }
 
-    //método que actualiza el precio total y la cantidad
-    //de productos total del carrito
+    /**
+     * método que actualiza el precio total y la cantidad de productos total del carrito
+     */
     private function update_precio_cantidad() {
         //seteamos las variables precio y artículos a 0
         $precio = 0;
@@ -99,7 +105,10 @@ class Carrito {
         //refrescamos él contenido del carrito para que quedé actualizado
         $this->update_carrito();
     }
-    
+    /**
+     * Elimina el articulo del carrito
+     * @param type $id
+     */
     public function menos($id)
     {
          foreach ($this->carrito as $row) {
@@ -112,7 +121,11 @@ class Carrito {
         $this->update_carrito();
     }
     
-    //método que retorna el precio total del carrito
+    /**
+     * Devuelve el importe total delc arrtito
+     * @return int
+     * @throws Exception
+     */
     public function precio_total() {
         //si no está definido el elemento precio_total o no existe el carrito
         //el precio total será 0
@@ -127,7 +140,11 @@ class Carrito {
         return $this->carrito["precio_total"] ? $this->carrito["precio_total"] : 0;
     }
 
-    //método que retorna el número de artículos del carrito
+   /**
+    * Devuelve el numero total de elementos del carrito
+    * @return int
+    * @throws Exception
+    */
     public function articulos_total() {
         //si no está definido el elemento articulos_total o no existe el carrito
         //el número de artículos será de 0
@@ -155,15 +172,20 @@ class Carrito {
         return $carrito == null ? null : $carrito;
     }
 
-    //método que llamamos al insertar un nuevo producto al 
-    //carrito para eliminarlo si existia, así podemos insertarlo
-    //de nuevo pero actualizado
+    /**
+     * método que llamamos al insertar un nuevo producto al  carrito para eliminarlo si existia, así podemos insertarlo de nuevo pero actualizado
+     * @param type $unique_id
+     */
     private function unset_producto($unique_id) {
         unset($_SESSION["carrito"][$unique_id]);
     }
 
-    //para eliminar un producto debemos pasar la clave única
-    //que contiene cada uno de ellos
+    /**
+     * para eliminar un producto debemos pasar la clave única que contiene cada uno de ellos
+     * @param type $unique_id
+     * @return boolean
+     * @throws Exception
+     */
     public function remove_producto($unique_id) {
         //si no existe el carrito
         if ($this->carrito === null) {
@@ -183,14 +205,18 @@ class Carrito {
         return true;
     }
 
-    //eliminamos el contenido del carrito por completo
+    /**
+     * eliminamos el contenido del carrito por completo
+     * @return boolean
+     */
     public function destroy() {
         unset($_SESSION["carrito"]);
         $this->carrito = null;
         return true;
     }
-
-    //actualizamos el contenido del carrito
+    /**
+     * actualizamos el contenido del carrito
+     */
     public function update_carrito() {
         self::__construct();
     }

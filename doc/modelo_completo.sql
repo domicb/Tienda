@@ -1,4 +1,5 @@
 
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -113,8 +114,9 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-INSERT INTO `categoria`(`idcategoria`, `cod_categoria`, `nombre`, `descripcion`, `anuncio`) VALUES (
-  NULL,'1','Filosofia','Biografias de los grandes pensadores de la historia','Descubre el mundo de la filosofia a través de su historia');
 
 INSERT INTO `categoria`(`idcategoria`, `cod_categoria`, `nombre`, `descripcion`, `anuncio`) VALUES (
-  NULL,'2','Economia','La historia de la economia por los mejores autores','Lográ entender el pasado presente y futuro de la economia mundial a traves de estos grandes bests sellers');
+  NULL,'2','Filosofia','Biografias de los grandes pensadores de la historia','Descubre el mundo de la filosofia a través de su historia');
+
+INSERT INTO `categoria`(`idcategoria`, `cod_categoria`, `nombre`, `descripcion`, `anuncio`) VALUES (
+  NULL,'3','Economia','La historia de la economia por los mejores autores','Lográ entender el pasado presente y futuro de la economia mundial a traves de estos grandes bests sellers');

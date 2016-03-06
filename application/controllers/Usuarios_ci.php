@@ -17,7 +17,11 @@ class Usuarios_ci extends CI_Controller {
         $carro = $this->load->view('Modificar', $data, true);
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
-    
+    /**
+     * 
+     * @param type $id
+     * @param type $alemuestra la vista para recuperar contraseña
+     */
     function recuperar($id,$ale)
     {
         if(isset($id) and isset($ale))
@@ -32,7 +36,9 @@ class Usuarios_ci extends CI_Controller {
         }
     }
     
-    
+    /**
+     * filtra los datos a cambiar
+     */
     function cambiar()
     {
         if(isset($_POST['nueva']) && isset($_POST['nueva1']))
@@ -66,7 +72,9 @@ class Usuarios_ci extends CI_Controller {
             $this->load->view('Plantilla_carro',Array('carro'=> $carro));   
         }
     }
-    
+    /**
+     * comprueba los datos y le pide al modelo el cambio de contraseña
+     */
     function contra()
     {
         if(!isset($_POST['recu']))
@@ -111,7 +119,9 @@ class Usuarios_ci extends CI_Controller {
             return false;
         }
     }
-
+    /**
+     * actualiza los datos del usuario
+     */
     function updateUsuario() {
         if (isset($_POST['modificar']) and $_POST['modificar'] == 'si') {
             //SI EXISTE EL CAMPO OCULTO LLAMADO GRABAR CREAMOS LAS VALIDACIONES

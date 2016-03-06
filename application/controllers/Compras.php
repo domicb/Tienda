@@ -15,7 +15,6 @@ class Compras extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('fpdf');
     }
-
     function index() {
         $no = false;//con este booleano comprobamos si el usuario no ha escogido más stock de la cuenta
         $datosCarr = $this->Carrito->get_content();
@@ -57,23 +56,37 @@ class Compras extends CI_Controller {
                 $this->load->view('Plantilla_carro', Array('carro' => $carro));
         }
     }
-
+    /**
+     * Recoge los datos de la linea y le pide al modelo introducirlos
+     * @param type $idpedido
+     * @param type $precio
+     * @param type $cantidad
+     * @param type $idproducto
+     */
     function newLinea($idpedido, $precio, $cantidad, $idproducto) {
         $this->Tienda_model->setLinea($idpedido, $precio, $cantidad, $idproducto);
     }
-
+    /**
+     * devuelve a la vista el contenido del carrito
+     */
     function micarro() {
         $res = $this->Carrito->get_content();
         //echo "<pre>"; print_r($res); echo "</pre>";
         $carro = $this->load->view('Carro', Array('articulos' => $res), true);
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
-
+    /**
+     * elimina el pedido a traves de su id con la funcion del modelo bajaPedido
+     * @param type $id
+     */
     function borraPedido($id) {
         $this->Tienda_model->bajaPedido($id);
         $this->pedidos();
     }
-
+    /**
+     * Añade al carrito el producto 
+     * @param type $id
+     */
     function compra($id) {
         $articulo = $this->Tienda_model->datos_libro($id);
         if ($articulo['cantidad'] > 0) { //si hay existencias operamos
@@ -94,7 +107,10 @@ class Compras extends CI_Controller {
             $this->load->view('Plantilla_carro', Array('carro' => $carro));
         }
     }
-    
+    /**
+     * le pide al modelo carrito que elimine el producto
+     * @param type $id
+     */
     function unomenos($id)
     {
         $this->Carrito->menos($id);
@@ -104,17 +120,23 @@ class Compras extends CI_Controller {
             $carro = $this->load->view('Carro', Array('articulos' => $res), true);
             $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
-    
+    /**
+     * le pide al carrito vaciarlo
+     */
     function vaciar() {
         $this->Carrito->destroy();
         $carro = $this->load->view('Carro', '', true);
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
-
+    /**
+     * elimina el carrito
+     */
     function borraCarrito() {
         $this->Carrito->destroy();
     }
-
+    /**
+     * muetsra la lista de pedidos
+     */
     function pedidos() {
         $email = $this->session->userdata('username');
         $datos = $this->Usuarios_model->getUsu($email);
@@ -125,7 +147,10 @@ class Compras extends CI_Controller {
         $carro = $this->load->view('Pedidos', Array('articulos' => $pedidos), true);
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
-
+    /**
+     * elimina el articulo especifico
+     * @param type $pro
+     */
     function eliminar($pro) {
         $this->Carrito->remove_producto($pro);
         $res = $this->Carrito->get_content();
@@ -133,7 +158,10 @@ class Compras extends CI_Controller {
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
     
-
+    /**
+     * Muestra el pdf con los datos del pedido
+     * @param type $idPedido
+     */
     function verPdf($idPedido) {
         $datosPedido = $this->Tienda_model->datosPedido($idPedido);
         $email = $this->session->userdata('username');
@@ -196,7 +224,10 @@ class Compras extends CI_Controller {
 
         $pdf->Output();
     }
-
+    /**
+     * muestra el pdf del pedido en cuestion
+     * @param type $idPedido
+     */
     function pdf($idPedido) {
         $metodo = 'F';
         $datosPedido = $this->Tienda_model->datosPedido($idPedido);
@@ -257,7 +288,10 @@ class Compras extends CI_Controller {
         $pdf->Cell(0, 10, 'Page ' . $pdf->PageNo() . '/{nb}', 0, 0, 'C');
         $pdf->Output($metodo, 'Assets/img/' . $idPedido . 'pedido.pdf', true);
     }
-
+    /**
+     * finaliza la compra mandando elc orreo con el pdf y los detalles del pedido
+     * @param type $idPedido
+     */
     function finalCompra($idPedido) {
         $datosPedido = $this->Tienda_model->datosPedido($idPedido);
         $this->pdf($idPedido);

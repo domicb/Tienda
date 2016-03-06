@@ -6,8 +6,19 @@ class Envio_email_model extends CI_Model
 		parent::__construct();
 	}
 	
-	//realizamos la inserci�n de los datos y devolvemos el 
-	//resultado al controlador para env�ar el correo si todo ha ido bien
+        /**
+         * Recoje todos los campos ya filtramos del formulario y los introduce en la tabla correspondiente
+         * @param type $nombre
+         * @param type $correo
+         * @param type $nick
+         * @param type $password
+         * @param type $apellidos
+         * @param type $direccion
+         * @param type $cp
+         * @param type $dni
+         * @param type $provincia
+         * @return type
+         */
 	function new_user($nombre,$correo,$nick,$password,$apellidos,$direccion,$cp,$dni,$provincia)
 	{
             $ale = rand(1,8);
@@ -29,6 +40,12 @@ class Envio_email_model extends CI_Model
              );
              return $this->db->insert('usuario', $data);	
     }
+    /**
+     * Envia el email con los datos del pedido
+     * @param type $email
+     * @param type $usuario
+     * @param type $pedido
+     */
     function sendMailPedido($email,$usuario,$pedido)
     {
          //cargamos la libreria email de ci
@@ -69,6 +86,11 @@ class Envio_email_model extends CI_Model
        // var_dump($this->email->print_debugger());
     }
     
+    /**
+     * envia el email de registro al usuario registrado
+     * @param type $email
+     * @param type $nombre
+     */
     public function sendMailGmail($email,$nombre) {
         //cargamos la libreria email de ci
         $this->load->library("email");
@@ -100,7 +122,12 @@ class Envio_email_model extends CI_Model
        // var_dump($this->email->print_debugger());
     }
     
-    
+    /**
+     * Envia el email de recuperacion
+     * @param type $ema
+     * @param type $aleatorio
+     * @param type $id
+     */
     public function sendMailRecu($ema,$aleatorio,$id) {
         //cargamos la libreria email de ci
         $this->load->library("email");

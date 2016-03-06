@@ -99,7 +99,19 @@ class Carrito {
         //refrescamos él contenido del carrito para que quedé actualizado
         $this->update_carrito();
     }
-
+    
+    public function menos($id)
+    {
+         foreach ($this->carrito as $row) {
+              if ($row["unique_id"] === $id) {
+                    //si ya estaba sumamos la cantidad
+                    $row["cantidad"] = $row["cantidad"]-1;
+                }
+        }
+        //primero debemos eliminar el producto si es que estaba en el carrito
+        $this->update_carrito();
+    }
+    
     //método que retorna el precio total del carrito
     public function precio_total() {
         //si no está definido el elemento precio_total o no existe el carrito

@@ -46,10 +46,12 @@ class Envio_email extends CI_Controller {
             //EL COMOD�N %s SUSTITUYE LOS NOMBRES QUE LE HEMOS DADO ANTERIORMENTE, EJEMPLO, 
             //SI EL NOMBRE EST� VAC�O NOS DIR�A, EL NOMBRE ES REQUERIDO, EL COMOD�N %s 
             //SER� SUSTITUIDO POR EL NOMBRE DEL CAMPO
+            $this->form_validation->set_message('cp', 'El %s no es válido');
             $this->form_validation->set_message('required', 'El %s es requerido');
             $this->form_validation->set_message('valid_email', 'El %s no es valido');
             $this->form_validation->set_message('is_unique', 'Ya existe un %s registrado con esa dirección');
             $this->form_validation->set_message('max_length', 'El %s es demasiado largo');
+            $this->form_validation->set_message('min_length', 'El %s es demasiado corto');
             $this->form_validation->set_message('integer', 'El %s debe ser de números enteros');
             $this->form_validation->set_message('valid', 'El %s no es válido');
 

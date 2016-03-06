@@ -9,7 +9,9 @@
                 <table class="table table-bordered">
                     <thead> 
                         <tr><!--tabla de tareas-->                        
-                            <td><b>Número de pedido</b></td>  
+                            <td><b>N pedido</b></td>  
+                            <td><b>Nombre</b></td>
+                            <td><b>Dirección</b></td>
                             <td><b>Fecha</b></td>
                             <td><b>Estado</b></td>   
                             <td><b>Importe</b></td>  
@@ -20,12 +22,14 @@
                             <?php foreach ($articulos as $articulo): ?>     
                             <tr>
                                 <td> <?php echo $articulo['idpedido']; ?> </td>
+                                <td><?php echo $articulo['nombre_persona'] .' '.$articulo['apellidos_persona'] ?></td>
+                                <td><?php echo $articulo['provincia'] .' '.$articulo['cp'] ?></td>
                                 <td> <?php echo $articulo['fecha']; ?> </td>                             
                                 <td> <?php if($articulo['estado']=='1'){echo 'Pendiente';}else{echo 'En Tramite';}  ?></td>     
                                 <td> <?php echo $articulo['importe']; ?></td> 
                                 <?php if($articulo['estado']=='1'):?><!-- SOlo podremos borrar el pedido sinó se ha enviado -->
                                 <td><a href="<?=base_url().'index.php/Compras/borraPedido/'.$articulo['idpedido']?>">Anular</a> | 
-                                    <a href="<?=base_url().'index.php/Compras/verPdf/'.$articulo['idpedido']?>"> Ver en PDF</a></td>
+                                    <a href="<?=base_url().'index.php/Compras/verPdf/'.$articulo['idpedido']?>"> PDF</a></td>
                                 <?php else :?>
                                  <td><a href="#">Anular</a> | <a href="#"> Ver en PDF</a></td>
                                 <?php endif;?>

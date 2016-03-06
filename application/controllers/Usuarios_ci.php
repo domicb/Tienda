@@ -116,7 +116,6 @@ class Usuarios_ci extends CI_Controller {
         if (isset($_POST['modificar']) and $_POST['modificar'] == 'si') {
             //SI EXISTE EL CAMPO OCULTO LLAMADO GRABAR CREAMOS LAS VALIDACIONES
             $this->form_validation->set_rules('name', 'Nombre', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim|xss_clean');
             $this->form_validation->set_rules('username', 'Usuario', 'required|trim|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'required|trim|xss_clean|md5');
             $this->form_validation->set_rules('ape', 'Apellidos', 'required|trim|xss_clean');
@@ -130,7 +129,6 @@ class Usuarios_ci extends CI_Controller {
             //SI EL NOMBRE EST� VAC�O NOS DIR�A, EL NOMBRE ES REQUERIDO, EL COMOD�N %s 
             //SER� SUSTITUIDO POR EL NOMBRE DEL CAMPO
             $this->form_validation->set_message('required', 'El %s es requerido');
-            $this->form_validation->set_message('valid_email', 'El %s no es valido');
             $this->form_validation->set_message('is_unique', 'Ya existe un %s registrado con esa dirección');
             $this->form_validation->set_message('max_length', 'El %s es demasiado largo');
             $this->form_validation->set_message('integer', 'El %s debe ser de números enteros');
@@ -144,11 +142,10 @@ class Usuarios_ci extends CI_Controller {
                 $datos = array(
                     'nombre' => $this->input->post('name'),
                     'provincia' => $this->input->post('provincia'),
-                    'email' => $this->input->post('email'),
                     'username' => $this->input->post('username'),
                     'password' => $this->input->post('password'),
                     'apellidos' => $this->input->post('ape'),
-                    'direccion' => $this->input->post('address'),
+                    'direccion' => $this->input->post('addres'),
                     'cp' => $this->input->post('cp'),
                     'dni' => $this->input->post('dni'),
                 );

@@ -150,7 +150,28 @@ Narra las peripecias de dos españoles enviados a Francia por la Real Academia E
   '1',
   '1',
   '2016/02/13',
-  '2016/11/13');
+  '2016/11/13'),
+   (NULL,
+    '2',
+    'El contrato social',
+    '16',
+    '15.40',
+    '11',
+    'c2/rouseau.jpg',
+    '21',
+    ' El contrato social, es un libro escrito por Jean-Jacques Rousseau y publicado en 1762. Es una obra sobre filosofía política y 
+    trata principalmente sobre la libertad e igualdad de los hombres bajo un Estado instituido por medio de un contrato social.',
+    'Se dice que este libro fue uno de los muchos incitadores de la Revolución francesa por sus ideas políticas. Bajo la teoría del 
+    contrato social se fundamenta buena parte de la filosofía liberal, en especial el liberalismo clásico por su visión filosófica del 
+    individuo como fundamental, que luego decide vivir en sociedad por lo que necesita del Estado de Derecho que asegure las libertades
+    para poder convivir. Así también se dice que en este libro se exponen lo que en el futuro serían los principios de la filosofía 
+    política socialista, en parte por el concepto de la voluntad general.',
+    '1',
+    '1',
+    '2016/01/18',
+    '2016/08/23'
+
+  );
 
 
 

@@ -54,8 +54,7 @@
                         </li>                       
                         <li>
                             <a href="#">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                            &nbsp;&nbsp;&nbsp;</a>
                         </li>
                          <<?php if($this->session->userdata('username')):?>
                         <li>
@@ -83,7 +82,7 @@
                         <?php endif;?>
                          <?php if ($this->session->userdata('username')== 'serujio@serujio.com'): ?>
                         <li>                            
-                            <a href="<?= base_url() . 'index.php/scaffolding/' ?>">Panel de control
+                            <a href="<?= base_url() . 'index.php/scaffolding/' ?>">Panel de control</a>
                         </li>
                         <?php endif; ?>  
                     </ul>

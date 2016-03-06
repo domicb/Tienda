@@ -20,7 +20,10 @@
                                 <td> <?php echo $articulo['nombre']; ?> </td>
                                 <td> <?php echo substr($articulo['descripcion'], 0, 84).'...'?> </td>
                                 <td> <?php echo $articulo['precio']; ?> </td>
-                                <td> <a><span class="glyphicon glyphicon-arrow-up"></span></a><?php echo $articulo['cantidad']; ?> <a><span class="glyphicon glyphicon-arrow-down"></span></a></td>                              
+                                <td> <a href="<?=base_url().'index.php/Compras/compra/'.$articulo['idproducto'];?>">
+                                        <span class="glyphicon glyphicon-arrow-up"></span></a>
+                                            <?php echo $articulo['cantidad']; ?> 
+                        </td>                              
                                 <td>
                                     <img width="100" height="150" src="<?= base_url() ?>Assets/img/<?= $articulo['imagen'] ?>"  alt="">
                                 </td>
@@ -29,9 +32,7 @@
                                         <span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
                             <?php endforeach; ?> 
-
                         </tr>
-
                     </tbody>
                 </table>
                 <!-- BOTONES CARRITO -->

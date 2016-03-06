@@ -17,7 +17,7 @@ VALUES
 (NULL,
 '1',
 'Contra la Ceguera',
-'5',
+'15',
 '14',
 '10',
 'c1/contra_la_ceguera.jpg',
@@ -36,7 +36,7 @@ sindicatos mayoritarios e, incluso, a sus compañeros y compañeras de partido o
 (NULL,
 '1',
 'Los amos del mudno',
-'3',
+'13',
 '18',
 '15',
 'c1/amos_del_mundo.jpg',
@@ -57,7 +57,7 @@ financieros: el poder sobre el poder. El poder financiero. La percepción del po
 (NULL,
 '1',
 'Hombres Buenos',
-'2',
+'12',
 '18.90',
 '9',
 'c1/hombres_buenos.jpg',
@@ -94,7 +94,7 @@ Narra las peripecias de dos españoles enviados a Francia por la Real Academia E
  (NULL,
   '2',
   'Discurso del método',
-  '4',
+  '14',
   '9.99',
   '12',
   'c2/descartes.jpg',
@@ -114,7 +114,7 @@ Narra las peripecias de dos españoles enviados a Francia por la Real Academia E
  (NULL,
   '2',
   'Ser y Tiempo',
-  '8',
+  '18',
   '11.40',
   '12',
   'c2/heidegger.jpg',
@@ -133,13 +133,12 @@ Narra las peripecias de dos españoles enviados a Francia por la Real Academia E
   (NULL,
   '2',
   'Critica de la Razón',
-  '2',
+  '12',
   '13.20',
   '17',
   'c2/kant.jpg',
   '21',
   'Se trata de una indagación trascendental acerca de las condiciones epistémicas del conocer humano
-  
   usuario cuyo objetivo central es lograr una respuesta definitiva sobre si la metafísica puede ser considerada
   una ciencia',
   'En esta obra, Kant intenta la conjunción de racionalismo y empirismo, haciendo una crítica de las 
@@ -150,7 +149,27 @@ Narra las peripecias de dos españoles enviados a Francia por la Real Academia E
   '1',
   '1',
   '2016/02/13',
-  '2016/11/13');
+  '2016/11/13'),
+  (NULL,
+    '2',
+    'El contrato social',
+    '16',
+    '15.40',
+    '11',
+    'c2/rouseau.jpg',
+    '21',
+    ' El contrato social, es un libro escrito por Jean-Jacques Rousseau y publicado en 1762. Es una obra sobre filosofía política y 
+    trata principalmente sobre la libertad e igualdad de los hombres bajo un Estado instituido por medio de un contrato social.',
+    'Se dice que este libro fue uno de los muchos incitadores de la Revolución francesa por sus ideas políticas. Bajo la teoría del 
+    contrato social se fundamenta buena parte de la filosofía liberal, en especial el liberalismo clásico por su visión filosófica del 
+    individuo como fundamental, que luego decide vivir en sociedad por lo que necesita del Estado de Derecho que asegure las libertades
+    para poder convivir. Así también se dice que en este libro se exponen lo que en el futuro serían los principios de la filosofía 
+    política socialista, en parte por el concepto de la voluntad general.',
+    '1',
+    '1',
+    '2016/01/18',
+    '2016/08/23'
+    );
 
 
 

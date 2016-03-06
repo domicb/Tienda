@@ -4,7 +4,7 @@
 
 <title><?php echo $title; ?></title>
 
-<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/scaffolding/stylesheet.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>/Assets/scaffolding/stylesheet.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv='expires' content='-1' />
@@ -23,7 +23,7 @@
 <?php endforeach; ?></select>
 </div>
 <div id="header_right">
-
+<a href="<?=base_url()?>">Volver</a> &nbsp;&nbsp;|&nbsp;
 <?php echo anchor('scaffolding'.$table_url, $this->lang->line('scaff_view_records')); ?> &nbsp;&nbsp;|&nbsp;&nbsp;
 <?php echo anchor('scaffolding/add'.$table_url,  $this->lang->line('scaff_create_record')); ?>
 </div>

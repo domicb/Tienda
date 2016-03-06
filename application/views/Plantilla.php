@@ -57,7 +57,7 @@
                             <a href="#">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                </a>
+                            </a>
                         </li>
                         <?php if ($this->session->userdata('username')): ?>
                             <li>
@@ -69,24 +69,24 @@
                             <li>  <a href="<?= base_url() . 'index.php/Login/' ?>">Identificate</a></li>                                                                 
                         <?php endif; ?>  
                         <li>
-                           <a href="<?= base_url() . 'index.php/Compras/micarro/' ?>"> <img src="<?= base_url() ?>Assets/img/carrito.png">
-                        </li>
-                        <li>
-                            Ver carrito!</a>
+                            <a href="<?= base_url() . 'index.php/Compras/micarro/' ?>"> <img src="<?= base_url() ?>Assets/img/carrito.png">
+                                </li>
+                                <li>
+                                    Ver carrito!</a>
                         </li>
                         <?php if ($this->session->userdata('username')): ?>
-                        <li>
-                            <a href="<?= base_url() . 'index.php/Compras/pedidos/' ?>"> <img src="<?= base_url() ?>Assets/img/pedido.png">
-                        </li>
-                        <li>
-                            Ver Pedidos</a>
-                        </li>
-                        <?php endif;?>
-                        
-                        <?php if ($this->session->userdata('username')== 'serujio@serujio.com'): ?>
-                        <li>                            
-                            <a href="<?= base_url() . 'index.php/scaffolding/' ?>">Panel de control
-                        </li>
+                            <li>
+                                <a href="<?= base_url() . 'index.php/Compras/pedidos/' ?>"> <img src="<?= base_url() ?>Assets/img/pedido.png">
+                                    </li>
+                                    <li>
+                                        Ver Pedidos</a>
+                            </li>
+                        <?php endif; ?>
+
+                        <?php if ($this->session->userdata('username') == 'serujio@serujio.com'): ?>
+                            <li>                            
+                                <a href="<?= base_url() . 'index.php/scaffolding/' ?>">Panel de control</a>
+                            </li>
                         <?php endif; ?>  
                     </ul>
                 </div>
@@ -152,9 +152,10 @@
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
-            </div>
-
+            </div>           
+            <!-- calendarios -->
             <hr>
+    
             <span id="aqui">
                 <!-- AQUI VA EL CUERPO CON PHP -->
                 <?php
@@ -169,27 +170,22 @@
             <hr>
             <!-- PAGINACION -->
             <center><a class="btn btn-primary btn-large" id="arri">Volver Arriba!</a>                
-                <hr>
-                Inporta tu archivo xml
-                <form action="demo_form.asp">
-                    <input type="file" name="pic" accept="file_extension*/xml" onchange="handleFiles(this.files)">
-                    <input type="submit">
-                </form></center>
-            <script type="text/javascript">
-                $("#arri").click(function () {
-                    $('body,html').animate({scrollTop: 0}, 500);
-                });
-            </script>
-            <hr>
 
-            <!-- Footer -->
-            <footer>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <center><p>Copyright &copy; Carrasco Domingo 2016</p></center>
+                <script type="text/javascript">
+                    $("#arri").click(function () {
+                        $('body,html').animate({scrollTop: 0}, 500);
+                    });
+                </script>
+                <hr>
+
+                <!-- Footer -->
+                <footer>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <center><p>Copyright &copy; Carrasco Domingo 2016</p></center>
+                        </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
 
         </div>
         <!-- /.container -->

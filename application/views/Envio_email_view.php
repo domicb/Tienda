@@ -6,7 +6,7 @@
         <table>
             <tr>
                 <td>
-                    Nombre:
+                    <label>Nombre:</label>
                 </td>
                 <td>
                     <input type="text" class="form-control" name="nom" value="<?php echo set_value('nom') ?>" />
@@ -14,7 +14,7 @@
             </tr>
             <tr><input type="hidden" name="grabar" class="form-control" value="si" />
             <td>
-                Email:
+                <label>Email:</label>
             </td>
             <td>
                 <input type="text" name="correo" class="form-control" class="form-control" value="<?php echo set_value('correo') ?>" />
@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <td>
-                    Usuario:
+                    <label>Usuario:</label>
                 </td>
                 <td>
                     <input type="text" name="nick" class="form-control" value="<?php echo set_value('nick') ?> "/>
@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <td>
-                    Password:
+                    <label>Password:</label>
                 </td>
                 <td>
                     <input type="password" class="form-control" name="pass" />
@@ -38,7 +38,7 @@
 
             <tr>
                 <td>
-                    Apellidos:
+                    <label>Apellidos:</label>
                 </td>
                 <td>
                     <input type="text" name="ape" class="form-control" value="<?php echo set_value('ape') ?>"/>
@@ -46,7 +46,7 @@
             </tr>
             <tr>
                 <td>
-                    Direccion:
+                    <label>Direccion:</label>
                 </td>
                 <td>
                     <input type="text" class="form-control" name="dir" value="<?php echo set_value('dir') ?>"/>
@@ -54,7 +54,7 @@
             </tr>
             <tr>
                 <td>
-                    Código postal:
+                    <label>Código postal:</label>
                 </td>
                 <td>
                     <input type="text" name="cp" class="form-control" value="<?php echo set_value('cp') ?>"/>
@@ -62,7 +62,7 @@
             </tr>
             <tr>
                 <td>
-                    DNI:
+                   <label> DNI:</label>
                 </td>
                 <td>
                     <input type="text" name="dni" class="form-control" value="<?php echo set_value('dni') ?>"/>
@@ -70,7 +70,7 @@
             </tr>
             <tr>
                 <td>
-                    Provincia:
+                    <label>Provincia:</label>
                 </td>
                 <td>
                     <select name="provincia" class="form-control">
@@ -127,19 +127,15 @@
                         <option value='vizcaya'>Vizcaya</option>
                         <option value='zamora'>Zamora</option>
                         <option value='zaragoza'>Zaragoza</option>
-
                     </select>
                 </td>
             </tr>
-            <tr>
-                <td></td>
+
                 <td>
                     <font color="red" style="font-weight: bold; font-size: 14px; text-decoration: underline"><?php echo validation_errors(); ?></font>
                 </td>
-            </tr>
-            <tr>
-                <td>
 
+            <tr>
                 </td>
                 <td><br>
                     <a href="<?= site_url() . 'index.php/Productos/' ?>"><button type="button" class="btn btn-primary">Volver</button></a>

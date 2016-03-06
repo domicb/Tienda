@@ -179,8 +179,11 @@ class Tienda_model extends CI_Model {
      */
     function unomenos($id,$cantidad)
     {
+        $datos = $this->datos_libro($id);
+        $quedan = $datos['cantidad'];
+        $resultado = $quedan - $cantidad;
         $data = array(
-            'cantidad' => $cantidad
+            'cantidad' => $resultado
         );
         $this->db->where('idproducto', $id);
         $this->db->update('producto', $data);

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Function dni_valida_nif_cif_nie | framework</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Packages</h3>
+			<ul>
+				<li>
+					<a href="package-CodeIgniter.html">
+						CodeIgniter<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="package-CodeIgniter.Drivers.html">
+						Drivers					</a>
+
+						</li>
+				<li>
+					<a href="package-CodeIgniter.Libraries.html">
+						Libraries					</a>
+
+						</li>
+				<li>
+					<a href="package-CodeIgniter.Scaffolding.html">
+						Scaffolding					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="package-None.html">
+						None					</a>
+
+						</li>
+				<li>
+					<a href="package-PHP.html">
+						PHP					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Carrito.html">Carrito</a></li>
+				<li><a href="class-FPDF.html">FPDF</a></li>
+				<li><a href="class-PDF.html" class="invalid">PDF</a></li>
+				<li><a href="class-TTFParser.html">TTFParser</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li><a href="function-dni_LetraNIF.html">dni_LetraNIF</a></li>
+				<li><a href="function-dni_NIF_NIE_Ok.html">dni_NIF_NIE_Ok</a></li>
+				<li><a href="function-dni_QuitaLetra.html">dni_QuitaLetra</a></li>
+				<li class="active"><a href="function-dni_valida_nif_cif_nie.html">dni_valida_nif_cif_nie</a></li>
+				<li><a href="function-Error.html">Error</a></li>
+				<li><a href="function-GetInfoFromTrueType.html">GetInfoFromTrueType</a></li>
+				<li><a href="function-GetInfoFromType1.html">GetInfoFromType1</a></li>
+				<li><a href="function-LoadMap.html">LoadMap</a></li>
+				<li><a href="function-MakeDefinitionFile.html">MakeDefinitionFile</a></li>
+				<li><a href="function-MakeFont.html">MakeFont</a></li>
+				<li><a href="function-MakeFontDescriptor.html">MakeFontDescriptor</a></li>
+				<li><a href="function-MakeFontEncoding.html">MakeFontEncoding</a></li>
+				<li><a href="function-MakeUnicodeArray.html">MakeUnicodeArray</a></li>
+				<li><a href="function-MakeWidthArray.html">MakeWidthArray</a></li>
+				<li><a href="function-Message.html">Message</a></li>
+				<li><a href="function-Notice.html">Notice</a></li>
+				<li><a href="function-SaveToFile.html">SaveToFile</a></li>
+				<li><a href="function-Warning.html">Warning</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+<span>Package</span>			</li>
+			<li class="active">
+<span>Function</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="function">
+	<h1>Function dni_valida_nif_cif_nie</h1>
+
+
+	<div class="description">
+	<p>Función para validar códigos NIF, CIF y NIE Esta función clasifica y valida perfectamente todos* los códigos fiscales que se usan en España. Analiza una variable de 9 carácteres alfanuméricos y devuelve un valor numérico para cada tipo de código analizado donde todos los valores positivos (mayores que cero) indican que el código fiscal es correcto.</p>
+
+<p>Los valores devueltos son:
+ Tipo:      ??? NIF CIF NIE Correcto:        1  2   3 Incorrecto:   0   -1  -2  -3
+ La función cumple con todas las especificaciones de las leyes españolas: Decreto 2423/1975, de 25 de septiembre. Real Decreto 338/1990, de 9 de marzo. Real Decreto 1624/1992, de 29 de diciembre que modifica el 338/1990. Real Decreto 155/1996, de 2 de febrero. Orden de 3 de julio de 1998, por la que se modifica el Anexo del Decreto 2423/1975. Real Decreto 1065/2007, de 27 de julio. Orden EHA/451/2008, de 20 de febrero de 2008. Orden INT/2058/2008, de 14 de julio de 2008.
+ Que es, actualmente, todo lo aprobado respecto con los Códigos de Identificación Fiscal, Número de Identificación Fiscal y Número de Identificación de Extranjeros.</p>
+	</div>
+
+	<div class="info">
+		
+		
+		<b>Located at</b>
+		<a href="source-function-dni_valida_nif_cif_nie.html#38-153" title="Go to source code">
+			application/helpers/dni_helper.php
+		</a><br>
+	</div>
+
+
+	<table class="summary" id="parameters">
+	<caption>Parameters summary</caption>
+	<tr id="$cif">
+		<td class="name"><code>string</code></td>
+		<td class="value"><code><var>$cif</var></code></td>
+		<td></td>
+	</tr>
+	</table>
+
+
+
+</div>
+
+	<div id="footer">
+		framework API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js?3ef17f3508f4d2b82168a5c4107a9b111ddc99c1"></script>
+<script src="elementlist.js?2f5910c8e69293b24b0ea3ccff2c25504023dd47"></script>
+</body>
+</html>

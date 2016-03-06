@@ -51,6 +51,7 @@ class Compras extends CI_Controller {
             }
         }
         else{
+            $this->Carrito->destroy();
             $carro = '<div class="alert alert-info">Lo sentimos has escogido una cantidad de algún libro superior '
                         . 'al disponible le rogamos compruebe el stock disponible antes de comprar grácias.!</div>';
                 $this->load->view('Plantilla_carro', Array('carro' => $carro));

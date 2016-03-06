@@ -1,7 +1,8 @@
 <div class="container">
+            <center><h3>Modificando datos del usuario</h3></center>
     <div class="row">
-        <center><h3>Modificando datos del usuario</h3></center>
-        <div class="col-md-8">
+
+        <div class="col-md-3">
             <?php echo form_open(base_url() . "index.php/Usuarios_ci/updateUsuario") ?>
             <table>
                 <tr>
@@ -13,15 +14,7 @@
                     </td>
                 </tr>
             <input type="hidden" name="modificar" class="form-control" value="si" />
-                       
-                <tr>
-                    <td>
-                       <label> Usuario:</label> 
-                    </td>
-                    <td>
-                        <input type="text" name="username" class="form-control" value="<?php echo set_value('username') ?> "/>
-                    </td>
-                </tr>
+                                     
                 <tr>
                     <td>
                        <label> Password:</label> 
@@ -129,7 +122,35 @@
             </table><br>
 
         </div>
-        <div class="col-md-4">   <font color="red" style="font-weight: bold; font-size: 14px; text-decoration: underline"><?php echo validation_errors(); ?></font></div>
+          <div class="col-md-6">
+              <table class="table">
+                    <thead> 
+                        <tr><!--tabla de tareas-->                        
+                            <td><b>Nombre</b></td>  
+                            <td><b>Apellidos</b></td>
+                            <td><b>Direcccion</b></td>  
+                            <td><b>Codigo Postal</b></td>
+                            <td><b>DNI</b></td>
+                            <td><b>Provincia</b></td>
+                        </tr>
+                    <tbody>
+                        
+                 <tr>        
+            <?php foreach ($usuarios as $usuario) :?>
+               
+               <td> <?php echo $usuario['nombre']; ?> </td>
+               <td> <?php echo $usuario['apellidos']; ?> </td>
+               <td> <?php echo $usuario['direccion']; ?> </td>
+               <td> <?php echo $usuario['cp']; ?> </td>
+               <td> <?php echo $usuario['dni']; ?> </td>
+               <td> <?php echo $usuario['provincia']; ?> </td>
+                
+            <?php endforeach; ?>
+               </tr>     
+             </table>
+        </div>
+        <div class="col-md-3">   <font color="red" style="font-weight: bold; font-size: 14px; text-decoration: underline"><?php echo validation_errors(); ?></font></div>
+ 
     </div>
                 <center><a href="<?= site_url() . 'index.php/Productos/' ?>"><button type="button" class="btn btn-primary">Volver</button></a>
                 <input type="submit" class="btn btn-success" value="Guardar" title="Guardar" /></center>

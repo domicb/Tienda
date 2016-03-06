@@ -14,9 +14,12 @@ class Usuarios_ci extends CI_Controller {
      function index() {
         $data['title'] = 'Modificando datos';
         $data['head'] = 'Introduce los campos';
-        $carro = $this->load->view('Modificar', $data, true);
+        $email = $this->session->userdata('username');
+        $datos = $this->Usuarios_model->getUsu($email);
+        $carro = $this->load->view('Modificar',Array('usuarios' => $datos), true);
         $this->load->view('Plantilla_carro', Array('carro' => $carro));
     }
+    
     /**
      * 
      * @param type $id
@@ -126,7 +129,6 @@ class Usuarios_ci extends CI_Controller {
         if (isset($_POST['modificar']) and $_POST['modificar'] == 'si') {
             //SI EXISTE EL CAMPO OCULTO LLAMADO GRABAR CREAMOS LAS VALIDACIONES
             $this->form_validation->set_rules('name', 'Nombre', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('username', 'Usuario', 'required|trim|xss_clean');
             $this->form_validation->set_rules('password', 'Password', 'required|trim|xss_clean|md5');
             $this->form_validation->set_rules('ape', 'Apellidos', 'required|trim|xss_clean');
             $this->form_validation->set_rules('addres', 'Direccion', 'required|trim|xss_clean');
@@ -152,7 +154,6 @@ class Usuarios_ci extends CI_Controller {
                 $datos = array(
                     'nombre' => $this->input->post('name'),
                     'provincia' => $this->input->post('provincia'),
-                    'username' => $this->input->post('username'),
                     'password' => $this->input->post('password'),
                     'apellidos' => $this->input->post('ape'),
                     'direccion' => $this->input->post('addres'),

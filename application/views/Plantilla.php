@@ -11,7 +11,7 @@
 
         <title>Tienda</title>
         <link rel="icon" type="image/png" href="<?= base_url() ?>Assets/css/img/libro.png"/>
-
+        <script src="<?=base_url() ?>Assets/js/funciones.js" language="JavaScript"></script>
         <!-- Bootstrap Core CSS -->
         <link href="<?= base_url() ?>Assets/css/bootstrap.min.css" rel="stylesheet">
         <script src="<?= base_url() ?>Assets/js/jquery2.min.js"></script>

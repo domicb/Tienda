@@ -21,7 +21,8 @@
 
 <!-- Page Features -->
 <div class="row text-center">
-    <?php foreach ($libros as $key => $libro): ?> 
+    <div id="menu">
+    <?php $contador = 0; foreach ($libros as $key => $libro):  $contador ++;?>       
         <div class="col-md-3 col-sm-6 hero-feature">
             <div class="thumbnail">
                 <span class="help-block">Quedan  <?= $libro['cantidad'] ?> libros</span>
@@ -31,30 +32,15 @@
                     <p>  <?= substr($libro['descripcion'], 0, 200) ?> </p>
                     <p>
                         <a href="<?= base_url() . 'index.php/Compras/compra/' . $libro['idproducto'] ?>" class="btn btn-primary">Comprar <?= $libro['precio'] ?> &euro; </a></p><p> 
-                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#<?= $libro['idproducto'] ?>" id="<?= $libro['idproducto'] ?>">Más Información</a>
+                        <a href="<?= base_url() . 'Assets/pagina1.php?cod=' . $libro['idproducto'] ?>" class="btn btn-default" id="enlace<?=$contador?>">Más Información</a>
                     </p>
                 </div>
             </div>
         </div>
-        <!-- MODAL -->
-        <div class="modal fade" id="<?= $libro['idproducto'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h3>Información del libro</h3>
-                    </div>
-                    <div class="modal-body">
-                        <?= $libro['anuncio'] ?>                
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
-
+    <?php endforeach;?>
+        
+          </div>
+<div id="detalles"></div>
 </div>
 <div class="row text-center">
     <?php echo $this->pagination->create_links() ?></div>

@@ -272,11 +272,11 @@ class Compras extends CI_Controller {
         foreach ($lineas as $linea) {
             $titulo = $this->Tienda_model->datos_libro($linea['producto_idproducto']);
             $cantidad = $linea['cantidad'] * $linea['precio'];
-            $pdf->Cell(83, 40, utf8_decode($titulo['nombre']), 1);
-            $pdf->Cell(25, 40, utf8_decode($linea['precio']) . " " . iconv('UTF-8', 'windows-1252', '€'), 1);
-            $pdf->Cell(22, 40, utf8_decode('21%'), 1);
-            $pdf->Cell(35, 40, utf8_decode($linea['cantidad']), 1);
-            $pdf->Cell(25, 40, utf8_decode($cantidad) . " " . iconv('UTF-8', 'windows-1252', '€'), 1);
+            $pdf->Cell(83, 20, utf8_decode($titulo['nombre']), 1);
+            $pdf->Cell(25, 20, utf8_decode($linea['precio']) . " " . iconv('UTF-8', 'windows-1252', '€'), 1);
+            $pdf->Cell(22, 20, utf8_decode('21%'), 1);
+            $pdf->Cell(35, 20, utf8_decode($linea['cantidad']), 1);
+            $pdf->Cell(25, 20, utf8_decode($cantidad) . " " . iconv('UTF-8', 'windows-1252', '€'), 1);
             $pdf->Ln();
             if ($pdf->GetY() > 264) {
                 $pdf->AddPage();
